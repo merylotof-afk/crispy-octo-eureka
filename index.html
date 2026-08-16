@@ -1012,20 +1012,24 @@
 
         .cat-goodbye {
 
-            display: none;
+             display: none;
 
-            width:
-                min(500px, 90%);
+             flex-direction: column;
 
-            margin:
-                45px auto 0;
+             align-items: center;
 
-            text-align: center;
+             width:
+                 min(500px, 90%);
 
-            animation:
-                catAppear
-                0.8s
-                ease forwards;
+             margin:
+                 45px auto 0;
+
+             text-align: center;
+
+             animation:
+             catAppear
+             0.8s
+             ease forwards;
         }
 
 
@@ -1946,7 +1950,7 @@
 
             <div class="decorations">
 
-                 <h2 align=center>     🌷 💕 🌸 </h2>
+                 <h2 align=center>     🌷 💌 🌸 </h2>
 
             </div>
 
@@ -2134,9 +2138,9 @@ You made it all the way here. </h2>
                 </div>
             
                 <div class="final-cheer">
-            <h2>
+            <h2 style="font-size: 30px;">
                     Again, Happy Birthday
-                    KHERAYAAAAAAAAA!!!🎂🎉
+                      KHERAYAAA!!!🎂🎉
            </h2>
 
            </div>
@@ -2684,7 +2688,7 @@ Wanna see this again?
 
             const cat = document.getElementById("cat-goodbye");
 
-            cat.style.display = "block";
+            cat.style.display = "flex";
 
             createConfetti(80);
 
