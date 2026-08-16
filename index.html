@@ -1,0 +1,3963 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Happy Birthday 19th Safia !</title>
+
+
+    <style>
+
+        /* =========================================================
+           BASIC SETUP
+           ========================================================= */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            color: #54354f;
+
+            min-height: 100vh;
+
+            overflow-x: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 15% 15%,
+                    rgba(255, 190, 220, 0.9),
+                    transparent 32%
+                ),
+
+                radial-gradient(
+                    circle at 85% 85%,
+                    rgba(210, 190, 255, 0.85),
+                    transparent 35%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #fff2f8,
+                    #f8f0ff,
+                    #fff5fa
+                );
+        }
+
+
+        /* =========================================================
+           DREAMY BACKGROUND
+           ========================================================= */
+
+        .dreamy-background {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: -10;
+
+            overflow: hidden;
+
+            pointer-events: none;
+        }
+
+
+        .orb {
+
+            position: absolute;
+
+            border-radius: 50%;
+
+            filter: blur(75px);
+
+            opacity: 0.4;
+
+            animation:
+                orbFloat
+                12s
+                ease-in-out
+                infinite;
+        }
+
+
+        .orb.one {
+
+            width: 350px;
+            height: 350px;
+
+            background: #ffafd3;
+
+            top: -120px;
+            left: -120px;
+        }
+
+
+        .orb.two {
+
+            width: 450px;
+            height: 450px;
+
+            background: #c7a8ff;
+
+            right: -180px;
+            bottom: -180px;
+
+            animation-delay: 3s;
+        }
+
+
+        .orb.three {
+
+            width: 250px;
+            height: 250px;
+
+            background: #ffd6e8;
+
+            left: 45%;
+            top: 45%;
+
+            animation-delay: 6s;
+        }
+
+
+        @keyframes orbFloat {
+
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(25px, -20px);
+            }
+
+        }
+
+
+        /* =========================================================
+           FLOWERS
+           ========================================================= */
+
+        .flower {
+
+            position: absolute;
+
+            user-select: none;
+
+            opacity: 0.48;
+
+            filter:
+                drop-shadow(
+                    0 8px 10px
+                    rgba(90, 30, 80, 0.12)
+                );
+
+            animation:
+                flowerFloat
+                8s
+                ease-in-out
+                infinite;
+        }
+
+
+        .large {
+            font-size: 85px;
+        }
+
+
+        .medium {
+            font-size: 62px;
+        }
+
+
+        .small {
+            font-size: 43px;
+        }
+
+
+        .f1 {
+            top: 3%;
+            left: 2%;
+        }
+
+
+        .f2 {
+            top: 8%;
+            right: 4%;
+            animation-delay: 1s;
+        }
+
+
+        .f3 {
+            top: 32%;
+            left: -1%;
+            animation-delay: 2s;
+        }
+
+
+        .f4 {
+            top: 45%;
+            right: 0;
+            animation-delay: 3s;
+        }
+
+
+        .f5 {
+            bottom: 8%;
+            left: 4%;
+            animation-delay: 1.5s;
+        }
+
+
+        .f6 {
+            bottom: 3%;
+            right: 4%;
+            animation-delay: 2.5s;
+        }
+
+
+        .f7 {
+            top: 65%;
+            left: 18%;
+            animation-delay: 4s;
+        }
+
+
+        .f8 {
+            top: 23%;
+            right: 17%;
+            animation-delay: 5s;
+        }
+
+
+        @keyframes flowerFloat {
+
+            0%, 100% {
+
+                transform:
+                    translateY(0)
+                    rotate(-3deg);
+            }
+
+            50% {
+
+                transform:
+                    translateY(-15px)
+                    rotate(4deg);
+            }
+
+        }
+
+
+        /* =========================================================
+           FALLING PETALS
+           ========================================================= */
+
+        .petal {
+
+            position: fixed;
+
+            top: -30px;
+
+            width: 9px;
+            height: 14px;
+
+            border-radius:
+                70% 30% 70% 30%;
+
+            background:
+                rgba(244, 133, 181, 0.55);
+
+            pointer-events: none;
+
+            z-index: -1;
+
+            animation:
+                petalFall
+                linear
+                infinite;
+        }
+
+
+        @keyframes petalFall {
+
+            0% {
+
+                transform:
+                    translateY(-30px)
+                    rotate(0deg);
+            }
+
+            100% {
+
+                transform:
+                    translateY(110vh)
+                    rotate(360deg);
+            }
+
+        }
+
+
+        /* =========================================================
+           CONFETTI
+           ========================================================= */
+
+        #confetti-container {
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            z-index: 99999;
+
+            overflow: hidden;
+        }
+
+
+        .confetti {
+
+            position: absolute;
+
+            top: -30px;
+
+            width: 9px;
+
+            height: 16px;
+
+            border-radius: 2px;
+
+            animation:
+                confettiFall
+                linear
+                forwards;
+        }
+
+
+        @keyframes confettiFall {
+
+            0% {
+
+                transform:
+                    translate3d(0, -30px, 0)
+                    rotate(0deg);
+
+                opacity: 1;
+            }
+
+            100% {
+
+                transform:
+                    translate3d(
+                        var(--drift),
+                        110vh,
+                        0
+                    )
+                    rotate(720deg);
+
+                opacity: 0;
+            }
+
+        }
+
+
+        /* =========================================================
+           PAGES
+           ========================================================= */
+
+        .page {
+
+            min-height: 100vh;
+
+            padding:
+                40px 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        /* =========================================================
+           PAGE 1
+           ========================================================= */
+
+        #page1 {
+
+            flex-direction: column;
+
+            text-align: center;
+        }
+
+
+        .birthday-card {
+
+            width:
+                min(900px, 100%);
+
+            padding:
+                clamp(35px, 7vw, 80px);
+
+            background:
+                rgba(255, 255, 255, 0.68);
+
+            backdrop-filter:
+                blur(18px);
+
+            -webkit-backdrop-filter:
+                blur(18px);
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.9);
+
+            border-radius: 40px;
+
+            box-shadow:
+                0 30px 80px
+                rgba(104, 45, 100, 0.13);
+        }
+
+
+        .decorations {
+
+            font-size:
+                clamp(25px, 4vw, 38px);
+
+            letter-spacing: 8px;
+
+            margin-bottom: 20px;
+        }
+
+
+        h1 {
+
+            font-size:
+                clamp(48px, 9vw, 90px);
+
+            font-weight: 600;
+
+            color: #b83d7d;
+
+            line-height: 1.1;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================================================
+           EXPANDABLE TEXT AREAS
+           ========================================================= */
+
+        .first-message,
+        .long-message,
+        #final-message {
+
+            width: 100%;
+
+            height: auto;
+
+            min-height: 0;
+
+            max-height: none;
+
+            overflow: visible;
+
+            overflow-wrap: anywhere;
+
+            word-wrap: break-word;
+
+            white-space: normal;
+        }
+
+
+        .first-message {
+
+            max-width: 750px;
+
+            margin:
+                0 auto 35px;
+
+            font-size:
+                clamp(19px, 3vw, 25px);
+
+            line-height: 1.8;
+
+            color: #67405f;
+
+            text-align: center;
+        }
+
+
+        .first-message p {
+
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================================================
+           MUSIC AREA
+           ========================================================= */
+
+        .music-area {
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 12px;
+
+            margin:
+                0 auto 35px;
+
+            transition:
+                all 0.8s ease;
+        }
+
+
+        .music-instruction {
+
+            font-size: 18px;
+
+            color: #7a4d70;
+
+            font-style: italic;
+        }
+
+
+        .music-player {
+
+            width: 300px;
+
+            padding: 12px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            background:
+                rgba(255, 255, 255, 0.82);
+
+            backdrop-filter:
+                blur(18px);
+
+            -webkit-backdrop-filter:
+                blur(18px);
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.9);
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 15px 40px
+                rgba(110, 55, 110, 0.15);
+        }
+
+
+        .song-cover {
+
+            width: 55px;
+
+            height: 55px;
+
+            flex-shrink: 0;
+
+            object-fit: cover;
+
+            border-radius: 13px;
+        }
+
+
+        .song-info {
+
+            min-width: 0;
+
+            flex: 1;
+
+            text-align: left;
+        }
+
+
+        .song-title {
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            color: #6e3566;
+
+            white-space: nowrap;
+
+            overflow: hidden;
+
+            text-overflow: ellipsis;
+        }
+
+
+        .song-artist {
+
+            font-size: 11px;
+
+            color: #96728e;
+
+            margin-top: 3px;
+        }
+
+
+        .music-button {
+
+            width: 42px;
+
+            height: 42px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            cursor: pointer;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #d95b98,
+                    #9a67cf
+                );
+
+            color: white;
+
+            font-size: 17px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-shrink: 0;
+        }
+
+
+        .music-button:hover {
+
+            transform: scale(1.08);
+        }
+
+
+        .visualizer {
+
+            display: flex;
+
+            gap: 2px;
+
+            height: 20px;
+
+            align-items: flex-end;
+        }
+
+
+        .bar {
+
+            width: 3px;
+
+            height: 5px;
+
+            background: #c65a9c;
+
+            border-radius: 3px;
+        }
+
+
+        .music-playing .bar {
+
+            animation:
+                musicBars
+                0.7s
+                ease-in-out
+                infinite alternate;
+        }
+
+
+        .music-playing .bar:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+
+
+        .music-playing .bar:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+
+        .music-playing .bar:nth-child(4) {
+            animation-delay: 0.45s;
+        }
+
+
+        @keyframes musicBars {
+
+            from {
+                height: 4px;
+            }
+
+            to {
+                height: 18px;
+            }
+
+        }
+
+
+        /* =========================================================
+           MUSIC PLAYER — TOP RIGHT
+           ========================================================= */
+
+        .music-area.corner {
+
+            position: fixed;
+
+            top: 20px;
+
+            right: 20px;
+
+            z-index: 500;
+
+            margin: 0;
+
+            gap: 0;
+
+            align-items: flex-end;
+        }
+
+
+        .music-area.corner .music-instruction {
+
+            display: none;
+        }
+
+
+        /* =========================================================
+           BUTTONS
+           ========================================================= */
+
+        .birthday-button {
+
+            border: none;
+
+            cursor: pointer;
+
+            padding:
+                17px 32px;
+
+            border-radius:
+                100px;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #d75596,
+                    #9460ca
+                );
+
+            box-shadow:
+                0 12px 30px
+                rgba(142, 72, 145, 0.25);
+
+            transition:
+                all 0.3s ease;
+        }
+
+
+        .birthday-button:hover {
+
+            transform:
+                translateY(-4px)
+                scale(1.03);
+
+            box-shadow:
+                0 18px 35px
+                rgba(142, 72, 145, 0.35);
+        }
+
+
+        /* =========================================================
+           PAGE 2
+           ========================================================= */
+
+        #page2 {
+
+            display: none;
+
+            align-items:
+                flex-start;
+
+            padding-top: 100px;
+
+            padding-bottom: 120px;
+        }
+
+
+        .long-message-card {
+
+            width:
+                min(950px, 100%);
+
+            padding:
+                clamp(30px, 6vw, 70px);
+
+            background:
+                rgba(255, 255, 255, 0.72);
+
+            backdrop-filter:
+                blur(18px);
+
+            -webkit-backdrop-filter:
+                blur(18px);
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.9);
+
+            border-radius: 40px;
+
+            box-shadow:
+                0 30px 80px
+                rgba(104, 45, 100, 0.12);
+        }
+
+
+        .long-title {
+
+            font-size:
+                clamp(35px, 6vw, 55px);
+
+            font-weight: 600;
+
+            color: #ae427d;
+
+            text-align: center;
+
+            margin-bottom: 45px;
+        }
+
+
+        .long-message {
+
+            font-size:
+                clamp(18px, 2.4vw, 22px);
+
+            line-height: 2;
+
+            color: #54364f;
+
+            text-align: left;
+        }
+
+
+        .long-message p {
+
+            margin-bottom: 30px;
+        }
+
+
+        .final-section {
+
+            margin-top: 100px;
+
+            padding-top: 60px;
+
+            border-top:
+                1px solid
+                rgba(170, 80, 140, 0.2);
+
+            text-align: center;
+        }
+
+
+        .final-section h2 {
+
+            font-size:
+                clamp(30px, 5vw, 45px);
+
+            font-weight: 600;
+
+            color: #ad3e79;
+
+            margin-bottom: 20px;
+        }
+
+
+        .final-description {
+
+            font-size: 19px;
+
+            margin-bottom: 30px;
+
+            color: #76506d;
+        }
+
+
+        /* =========================================================
+           PAGE 3
+           ========================================================= */
+
+        #page3 {
+
+            display: none;
+
+            min-height: 100vh;
+
+            flex-direction: column;
+
+            text-align: center;
+        }
+
+
+        .final-card {
+
+            width:
+                min(850px, 100%);
+
+            padding:
+                clamp(40px, 8vw, 90px);
+
+            background:
+                rgba(255, 255, 255, 0.72);
+
+            backdrop-filter:
+                blur(20px);
+
+            -webkit-backdrop-filter:
+                blur(20px);
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.9);
+
+            border-radius: 40px;
+
+            box-shadow:
+                0 30px 90px
+                rgba(104, 45, 100, 0.15);
+        }
+
+
+        .final-card h2 {
+
+            font-size:
+                clamp(40px, 8vw, 75px);
+
+            font-weight: 600;
+
+            color: #ad3e79;
+
+            margin-bottom: 35px;
+        }
+
+
+        #final-message {
+
+            font-size:
+                clamp(22px, 4vw, 42px);
+
+            line-height: 1.7;
+
+            color: #743b68;
+
+            text-align: center;
+        }
+
+
+        #final-message p {
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================================================
+           CAT GOODBYE
+           ========================================================= */
+
+        .goodbye-section {
+
+            margin-top: 60px;
+
+            text-align: center;
+        }
+
+
+        .cat-goodbye {
+
+            display: none;
+
+            width:
+                min(500px, 90%);
+
+            margin:
+                45px auto 0;
+
+            text-align: center;
+
+            animation:
+                catAppear
+                0.8s
+                ease forwards;
+        }
+
+
+        .cat-image {
+
+            display: block;
+
+            width:
+                min(380px, 85vw);
+
+            max-height: 450px;
+
+            object-fit: contain;
+
+            margin: 0 auto;
+        }
+
+
+        /* =========================================================
+           CAT SPEECH BUBBLE
+           ========================================================= */
+
+        .cat-speech {
+
+            position: relative;
+
+            display: inline-block;
+
+            margin-bottom: 15px;
+
+            padding:
+                15px 25px;
+
+            background: white;
+
+            color: #663b5e;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size:
+                clamp(18px, 4vw, 25px);
+
+            font-weight: bold;
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(100, 50, 100, 0.15);
+        }
+
+
+        .cat-speech::after {
+
+            content: "";
+
+            position: absolute;
+
+            bottom: -12px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            border-left:
+                12px solid transparent;
+
+            border-right:
+                12px solid transparent;
+
+            border-top:
+                15px solid white;
+        }
+
+
+        @keyframes catAppear {
+
+            0% {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px)
+                    scale(0.85);
+            }
+
+            70% {
+
+                transform:
+                    translateY(-8px)
+                    scale(1.03);
+            }
+
+            100% {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+
+        }
+
+
+        /* =========================================================
+           MOBILE
+           ========================================================= */
+
+        @media (max-width: 650px) {
+
+
+            .page {
+
+                padding:
+                    25px 14px;
+            }
+
+
+            .birthday-card,
+            .long-message-card,
+            .final-card {
+
+                border-radius: 27px;
+            }
+
+
+            .music-player {
+
+                width:
+                    min(330px, 90vw);
+            }
+
+
+            .music-area.corner {
+
+                top: 12px;
+
+                right: 12px;
+            }
+
+
+            .music-area.corner .music-player {
+
+                width:
+                    min(270px, 75vw);
+            }
+
+
+            .flower {
+
+                opacity: 0.30;
+            }
+
+
+            .large {
+                font-size: 65px;
+            }
+
+
+            .medium {
+                font-size: 50px;
+            }
+
+
+            .small {
+                font-size: 35px;
+            }
+
+
+            .birthday-button {
+
+                width: 100%;
+
+                max-width: 350px;
+            }
+
+
+            #page2 {
+
+                padding-top: 90px;
+            }
+
+
+            .long-message {
+
+                line-height: 1.85;
+            }
+
+
+            .cat-image {
+
+                width:
+                    min(330px, 80vw);
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+
+    <!-- =========================================================
+         DREAMY BACKGROUND
+         ========================================================= -->
+
+    <div class="dreamy-background">
+
+
+        <div class="orb one"></div>
+
+        <div class="orb two"></div>
+
+        <div class="orb three"></div>
+
+
+        <div class="flower large f1">
+            🌸
+        </div>
+
+        <div class="flower medium f3">
+            🌺
+        </div>
+
+        <div class="flower small f5">
+            🌸
+        </div>
+
+
+        <div class="flower medium f4">
+            🪻
+        </div>
+
+        <div class="flower medium f8">
+            🪻
+        </div>
+
+
+        <div class="flower medium f2">
+            🌷
+        </div>
+
+        <div class="flower medium f6">
+            🌷
+        </div>
+
+
+        <div class="flower medium f7">
+            🌺
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================================
+         FALLING PETALS
+         ========================================================= -->
+
+    <div
+        class="petal"
+        style="
+            left:8%;
+            animation-duration:11s;
+        "
+    ></div>
+
+
+    <div
+        class="petal"
+        style="
+            left:23%;
+            animation-duration:14s;
+            animation-delay:3s;
+        "
+    ></div>
+
+
+    <div
+        class="petal"
+        style="
+            left:42%;
+            animation-duration:12s;
+            animation-delay:6s;
+        "
+    ></div>
+
+
+    <div
+        class="petal"
+        style="
+            left:65%;
+            animation-duration:15s;
+            animation-delay:1s;
+        "
+    ></div>
+
+
+    <div
+        class="petal"
+        style="
+            left:84%;
+            animation-duration:13s;
+            animation-delay:5s;
+        "
+    ></div>
+
+
+
+    <!-- =========================================================
+         CONFETTI CONTAINER
+         ========================================================= -->
+
+    <div id="confetti-container"></div>
+
+
+
+    <!-- =========================================================
+         MUSIC FILE
+         ========================================================= -->
+
+    <audio
+        id="birthdaySong"
+        loop
+        preload="auto"
+    >
+
+        <source
+            src="Glue Song.mp3"
+            type="audio/mpeg"
+        >
+
+    </audio>
+
+
+
+    <!-- =========================================================
+         PAGE 1
+         ========================================================= -->
+
+    <section
+        id="page1"
+        class="page"
+    >
+
+
+        <div class="birthday-card">
+
+
+            <div class="decorations">
+
+               <h2 align=center> 🌸 💜 🌷 </h2>
+
+            </div>
+
+
+            <h1>
+
+                Happy Birthday to the most wonderful human ever !
+
+            </h1>
+
+
+
+            <div class="first-message">
+
+
+                <p>
+
+                    Happy birthday to the most amazing person I've ever met!
+                    I hope that this little "website" will make this day feel
+                    special.
+                    You're finally 19 and now we're not the same age number 
+                    anymore (very unfortunate for me).
+                    Take the time to read everything and listen to some music
+                    and please don't be upset at me for doing this :')
+
+
+
+                </p>
+<p>
+
+(ps: you'll always be kheraya or wtv. Anyways, keep reading and interacting !!!!)
+
+</p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 MUSIC
+                 ================================================= -->
+
+            <div
+                class="music-area"
+                id="musicArea"
+            >
+
+
+                <div class="music-instruction">
+
+                    Click here to listen 🎵
+
+                </div>
+
+
+                <div
+                    class="music-player"
+                    id="musicPlayer"
+                >
+
+
+                    <img
+                        src="Glue Song.jpg"
+                        alt="Song cover"
+                        class="song-cover"
+                    >
+
+
+                    <div class="song-info">
+
+
+                        <div class="song-title">
+
+                            Glue Song
+
+                        </div>
+
+
+                        <div class="song-artist">
+
+                            beabadoobee feat. Clairo
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="visualizer">
+
+                        <div class="bar"></div>
+
+                        <div class="bar"></div>
+
+                        <div class="bar"></div>
+
+                        <div class="bar"></div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         MUSIC BUTTON
+                         SAME SIZE / SAME APPEARANCE
+                         ================================================= -->
+
+                   <button 
+    type="button"
+    class="music-button" 
+    id="musicButton"
+    onclick="toggleMusic()"
+>
+    ▶
+</button>
+
+
+                </div>
+
+            </div>
+
+
+
+            <button
+                class="birthday-button"
+                onclick="goToSecondPage()"
+            >
+
+                Click to see what's next ;)
+
+            </button>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         PAGE 2
+         ========================================================= -->
+
+    <section
+        id="page2"
+        class="page"
+    >
+
+
+        <div class="long-message-card">
+
+
+            <div class="decorations">
+
+                 <h2 align=center>     🌷 💕 🌸 </h2>
+
+            </div>
+
+<h1 class="long-title">
+
+And now, for the main event...
+
+</h1>
+
+
+
+            <h2> <p>
+
+
+A good old "birthday card message" (also known as jarida)
+
+
+</p> </h2>
+
+<br>
+
+            <div class="long-message">
+<br>
+
+                <p>
+          Hello !! :) Happy birthday !!!!!! (hope you didn't open it before). As you already know,
+          I probably won't be able to see you for your birthday. I couldn't find a gift good enough
+          to give you so i thought why not make a gift myself? it's my first time ever making an
+          interactive birthday card whatsoever, and I really hope you like it so far. I feel so
+          I hope you'll see how much meaning this card and the previous gifts I've given you hold, as
+          they genuinely took a bit of time and effort to make. Please keep them forever Safia. no
+          matter what happens between us, keep them as a reminder I'm always here for you whenever you
+          need someone. </p>
+<p>
+          This is about to get a bit sad, so hold on tight kheraya :)
+</p>
+<p>
+          Safia, you know I'm a woman of my word right? So, I'm gonna try my best to be a good friend to
+          you and stand by your side, and also remind you of prayer and motivate you to fast (ba9i mansitch >:(
+          btw that was supposed to be that angry emoji in a sarcastic tone). All this and more in hopes to
+          see you in the hereafter, because in the end, no matter how much it hurts, this is us taking care of
+          each other and wanting the best for eachother. This past year and three months have been wonderful with
+          you, and I'll forever be grateful for all this time. I genuinely and truly look forward to becoming
+          someone you can count on at any time, if that wasn't the case already.
+
+        </p>
+        <p>
+          I'm not pretending that it's gonna be easy, because it's not, but one thing I've learned in my very
+          relatively long life (this is a pun intended on me explaining the half of your age thing), is that, if
+          we're willing to put in the effort, it will eventually work! Never despair kheraya :')
+        </p>
+
+      <p>
+          You are truly someone special. As I've already told you, I sit and ask myself, is there someone out there,
+          in this world, that could be like this kheraya? And it genuinely is impossible. It's like when I tell you
+          this is so you, like nobody could ever say or do that thing fhemti? Btw it seems soooo "unprofessional"
+
+          adding words bdarija but whatever (nonchalant tone btw) (I'm trying to make you laugh so you better be
+          laughing).
+          What I'm trying to say here, please stay who you are. Grow into this amazing soul you already have, just like
+          when a flower is all closed then it opens. It's a fricking cycle, and a beautiful one at that. Let me explain:
+ 
+        </p>
+<p>
+          You first are a seed, that seed is pollinated (?) by bees and whatnot, then you're nourished by the sun and water
+          and all the nutriments in the soil (the metaphor here is that you are hit by so many things from life you have no
+          control over, just like the seed doesn't control what it feeds on). Then, you turn into this beautiful flower,
+          and bees swarm over you to keep you "going" (I'll explain this one later). Then life happens, the flower fades,
+          and this, this is where I mean that we face obstacles and challenges, but you know what? Those bees I told you about 
+          earlier never stopped believing in you, so they carried one of the flower's thing (genuinely forgot the name),
+          this just means there's always someone rooting for you, there to help you bloom once again into that beautiful flower,
+          no matter how many times you feel down or how many obstacles you face (the flower fading metaphor).
+ 
+        </p>
+<p>
+          All and all, I need you to understand who tf you are. You're an wonderful daughter, a amazing friend, and you're 
+          probably the kind of person someone might've met you once but recalls that interaction often. You truly are a lilly in 
+          a field of roses.
+        </p>
+<p>
+          I know you probably think all of this is corny, but never change kheraya, you're such an amazing person to the point that
+          someone who has never met you heard me talk about you and thought "she must be such a sweet person".
+</p>
+        <h2>  You are worthy of everything beautiful in this world. </h2>
+
+
+
+            </div>
+
+
+
+            <div class="final-section">
+
+
+                <h2>
+
+                   
+
+You made it all the way here without k*lling me. Yaaaaaay!!!!!
+
+
+                </h2>
+
+
+                <p class="final-description">
+
+                    But there's still one more little surprise...
+
+                </p>
+
+
+                <button
+                    class="birthday-button"
+                    onclick="goToFinalPage()"
+                >
+
+                    Click here ! 🎁
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         PAGE 3
+         ========================================================= -->
+
+    <section
+        id="page3"
+        class="page"
+    >
+
+
+        <div class="final-card">
+
+
+            <div class="decorations">
+
+                    <h2 align=center>  🌸 🎉 🌷</h2>
+
+            </div>
+
+
+            <h2>
+
+                Finally...
+
+            </h2>
+
+
+
+            <div id="final-message">
+
+
+                <p>
+
+                    I know this might seem like too much or over the top,
+                    but I want you to know you're very appreciated and your
+                    existence means so much to me, and not only that, but to
+                    everyone who surrounds you. You have such a beautiful
+                    Safia, please never forget that.
+                    No matter what happens, know you're worthy of love,
+                    happiness, and so much more.
+                    I hope by doing this that I could contribute even the 
+                    slightest bit to that happiness.
+                    Thank you for existing. Whenever you feel down or upset,
+                    remember there's at the very least one person whose whole
+                    life was changed for the better due to you, to who you are.
+                    No matter how much time passes between us, never let anyone 
+                    or anything make you think you're too much, not enough, or
+                    that you need to change a part of you to be appreciated.
+
+                </p>
+            <h2 style="font-size: 40px;">
+                    Again, Happy 19th Birthday
+                    KHERAYAAAAAAAAA!!!🎂🎉
+           </h2>
+
+
+
+            </div>
+
+ <div class="final-section">
+
+
+                <h2 style="font-size: 40px;">         
+
+Wanna see this again?
+
+                </h2>
+                <p class="final-description">
+
+   Either use the "Go Back" button on the bottom left
+   or simply reload the page / rescan the QR Code :)
+
+
+                </p>
+</div>
+
+
+
+            <div class="goodbye-section">
+
+
+                <button
+                    class="birthday-button"
+                    onclick="sayGoodbye()"
+                >
+
+                    Click to say goodbye 🐾
+
+                </button>
+
+
+                <div
+                    id="cat-goodbye"
+                    class="cat-goodbye"
+                >
+
+
+                    <div class="cat-speech">
+
+                       BYEBYEEEEE KHERAYAAAA !!! 👋🫶🏾
+
+
+                    </div>
+
+
+                    <img
+                        src="KITTY.png"
+                        alt="Cute goodbye cat"
+                        class="cat-image"
+                    >
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+         ========================================================= -->
+
+    <script>
+
+
+        /* =========================================================
+           MUSIC
+           ========================================================= */
+
+        const song =
+            document.getElementById(
+                "birthdaySong"
+            );
+
+
+        const musicButton =
+            document.getElementById(
+                "musicButton"
+            );
+
+
+        const musicArea =
+            document.getElementById(
+                "musicArea"
+            );
+
+
+        const musicPlayer =
+            document.getElementById(
+                "musicPlayer"
+            );
+
+
+        /* =========================================================
+           MUSIC BUTTON
+           The button keeps exactly the same size and appearance.
+           ========================================================= */
+
+        musicButton.addEventListener(
+            "click",
+            function () {
+
+                if (song.paused) {
+
+                    song.play()
+                        .then(function () {
+
+                            musicButton.textContent = "Ⅱ";
+
+                            musicPlayer.classList.add(
+                                "music-playing"
+                            );
+
+                        })
+                        .catch(function (error) {
+
+                            console.error(
+                                "Music could not be played:",
+                                error
+                            );
+
+                            alert(
+                                "The music could not be played. Make sure birthday-song.mp3 is in the same folder as this HTML file."
+                            );
+
+                        });
+
+                }
+
+                else {
+
+                    song.pause();
+
+                    musicButton.textContent = "▶";
+
+                    musicPlayer.classList.remove(
+                        "music-playing"
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* Keep the button correct if the audio is paused elsewhere */
+
+        song.addEventListener(
+            "pause",
+            function () {
+
+                musicButton.textContent = "▶";
+
+                musicPlayer.classList.remove(
+                    "music-playing"
+                );
+
+            }
+        );
+
+
+        song.addEventListener(
+            "play",
+            function () {
+
+                musicButton.textContent = "Ⅱ";
+
+                musicPlayer.classList.add(
+                    "music-playing"
+                );
+
+            }
+        );
+
+
+
+        /* =========================================================
+           CONFETTI FUNCTION
+           ========================================================= */
+
+        function createConfetti(amount) {
+
+
+            const container =
+                document.getElementById(
+                    "confetti-container"
+                );
+
+
+            const colors = [
+
+                "#ff65a3",
+                "#d9468d",
+                "#a855c7",
+                "#8b5cf6",
+                "#f9a8d4",
+                "#c084fc",
+                "#ffffff",
+                "#ffd166"
+
+            ];
+
+
+            for (
+                let i = 0;
+                i < amount;
+                i++
+            ) {
+
+
+                const piece =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                piece.className =
+                    "confetti";
+
+
+                piece.style.left =
+                    Math.random() * 100 + "%";
+
+
+                piece.style.background =
+                    colors[
+                        Math.floor(
+                            Math.random()
+                            * colors.length
+                        )
+                    ];
+
+
+                piece.style.width =
+                    (
+                        Math.random() * 8
+                        + 5
+                    )
+                    + "px";
+
+
+                piece.style.height =
+                    (
+                        Math.random() * 12
+                        + 8
+                    )
+                    + "px";
+
+
+                piece.style.animationDuration =
+                    (
+                        Math.random() * 3
+                        + 2
+                    )
+                    + "s";
+
+
+                piece.style.animationDelay =
+                    (
+                        Math.random() * 0.8
+                    )
+                    + "s";
+
+
+                piece.style.setProperty(
+                    "--drift",
+                    (
+                        Math.random() * 300
+                        - 150
+                    )
+                    + "px"
+                );
+
+
+                container.appendChild(
+                    piece
+                );
+
+
+                setTimeout(
+                    () => {
+
+                        piece.remove();
+
+                    },
+                    6500
+                );
+
+            }
+
+        }
+
+
+
+        /* =========================================================
+           OPENING CONFETTI
+           ========================================================= */
+
+        window.addEventListener(
+            "load",
+            function () {
+
+
+                createConfetti(180);
+
+
+                setTimeout(
+                    function () {
+
+                        createConfetti(80);
+
+                    },
+                    900
+                );
+
+
+            }
+        );
+
+
+
+        /* =========================================================
+           PAGE 1 → PAGE 2
+           ========================================================= */
+
+        function goToSecondPage() {
+
+
+            const page1 =
+                document.getElementById(
+                    "page1"
+                );
+
+
+            const page2 =
+                document.getElementById(
+                    "page2"
+                );
+
+
+            musicArea.classList.add(
+                "corner"
+            );
+
+
+            page1.style.transition =
+                "opacity 0.7s ease, transform 0.7s ease";
+
+
+            page1.style.opacity =
+                "0";
+
+
+            page1.style.transform =
+                "scale(0.96)";
+
+
+            setTimeout(
+                function () {
+
+
+                    page1.style.display =
+                        "none";
+
+
+                    page2.style.display =
+                        "flex";
+
+
+                    page2.style.opacity =
+                        "0";
+
+
+                    page2.style.transform =
+                        "translateY(25px)";
+
+
+                    window.scrollTo(
+                        0,
+                        0
+                    );
+
+
+                    requestAnimationFrame(
+                        function () {
+
+
+                            page2.style.transition =
+                                "opacity 0.8s ease, transform 0.8s ease";
+
+
+                            page2.style.opacity =
+                                "1";
+
+
+                            page2.style.transform =
+                                "translateY(0)";
+
+
+                        }
+                    );
+
+
+                },
+                700
+            );
+
+        }
+
+
+
+        /* =========================================================
+           PAGE 2 → PAGE 3
+           ========================================================= */
+
+        function goToFinalPage() {
+
+
+            const page2 =
+                document.getElementById(
+                    "page2"
+                );
+
+
+            const page3 =
+                document.getElementById(
+                    "page3"
+                );
+
+
+            page2.style.transition =
+                "opacity 0.7s ease, transform 0.7s ease";
+
+
+            page2.style.opacity =
+                "0";
+
+
+            page2.style.transform =
+                "scale(0.97)";
+
+
+            setTimeout(
+                function () {
+
+
+                    page2.style.display =
+                        "none";
+
+
+                    page3.style.display =
+                        "flex";
+
+
+                    page3.style.opacity =
+                        "0";
+
+
+                    page3.style.transform =
+                        "translateY(20px)";
+
+
+                    window.scrollTo(
+                        0,
+                        0
+                    );
+
+
+                    requestAnimationFrame(
+                        function () {
+
+
+                            page3.style.transition =
+                                "opacity 1s ease, transform 1s ease";
+
+
+                            page3.style.opacity =
+                                "1";
+
+
+                            page3.style.transform =
+                                "translateY(0)";
+
+
+                            createConfetti(350);
+
+
+                            setTimeout(
+                                function () {
+
+                                    createConfetti(200);
+
+                                },
+                                700
+                            );
+
+
+                            setTimeout(
+                                function () {
+
+                                    createConfetti(150);
+
+                                },
+                                1500
+                            );
+
+
+                        }
+                    );
+
+
+                },
+                700
+            );
+
+        }
+
+
+
+        /* =========================================================
+           CAT GOODBYE
+           ========================================================= */
+
+        function sayGoodbye() {
+
+
+            const cat =
+                document.getElementById(
+                    "cat-goodbye"
+                );
+
+
+            cat.style.display =
+                "block";
+
+
+            createConfetti(80);
+
+        }
+
+
+    </script>
+
+<script>
+
+/* =========================================================
+   KEEP MUSIC PLAYER BETWEEN PAGES
+   + ADD VOLUME CONTROL
+   ========================================================= */
+
+document.addEventListener("click", function(event) {
+
+    /* Detect the "Click to see what's next" button */
+    const button = event.target.closest(".birthday-button");
+
+    if (
+        button &&
+        button.textContent.includes("what's next")
+    ) {
+
+        /* Move the music player OUTSIDE Page 1
+           before Page 1 disappears */
+
+        const musicArea =
+            document.getElementById("musicArea");
+
+        if (musicArea && musicArea.parentElement.id === "page1") {
+
+            document.body.appendChild(musicArea);
+
+        }
+
+    }
+
+}, true);
+
+
+<!-- =========================================================
+     EXTRA MUSIC CONTROLS
+     
+     Keeps the music player visible between pages
+     and adds an adjustable volume slider.
+     ========================================================= -->
+
+<script>
+
+/* =========================================================
+   KEEP MUSIC PLAYER VISIBLE BETWEEN PAGES
+   ========================================================= */
+
+const permanentMusicArea =
+    document.getElementById("musicArea");
+
+const firstPage =
+    document.getElementById("page1");
+
+
+/*
+   Watch Page 1 for changes.
+
+   When your original code hides Page 1,
+   the music player is moved directly into
+   the body so it does NOT disappear.
+*/
+
+const musicWatcher =
+    new MutationObserver(function() {
+
+
+        if (
+            firstPage.style.display === "none" &&
+            permanentMusicArea.parentElement !== document.body
+        ) {
+
+
+            document.body.appendChild(
+                permanentMusicArea
+            );
+
+
+        }
+
+    });
+
+
+musicWatcher.observe(
+    firstPage,
+    {
+        attributes: true,
+        attributeFilter: ["style"]
+    }
+);
+
+
+/*
+   Keep the player in the top-right corner.
+*/
+
+permanentMusicArea.classList.add(
+    "corner"
+);
+
+
+
+/* =========================================================
+   ADJUSTABLE VOLUME CONTROL
+   ========================================================= */
+
+const songForVolume =
+    document.getElementById(
+        "birthdaySong"
+    );
+
+
+/* Create volume control */
+
+const volumeControl =
+    document.createElement(
+        "div"
+    );
+
+
+volumeControl.id =
+    "volumeControl";
+
+
+volumeControl.innerHTML = `
+
+    <span id="volumeIcon">
+        🔊
+    </span>
+
+    <input
+        type="range"
+        id="volumeSlider"
+        min="0"
+        max="1"
+        step="0.01"
+        value="1"
+    >
+
+`;
+
+
+
+/*
+   Put the volume control underneath
+   the music player.
+*/
+
+permanentMusicArea.appendChild(
+    volumeControl
+);
+
+
+
+/* =========================================================
+   VOLUME SLIDER FUNCTION
+   ========================================================= */
+
+const volumeSlider =
+    document.getElementById(
+        "volumeSlider"
+    );
+
+
+const volumeIcon =
+    document.getElementById(
+        "volumeIcon"
+    );
+
+
+volumeSlider.addEventListener(
+    "input",
+    function() {
+
+
+        songForVolume.volume =
+            volumeSlider.value;
+
+
+        /*
+           Change the speaker icon
+           depending on the volume.
+        */
+
+        if (
+            volumeSlider.value == 0
+        ) {
+
+
+            volumeIcon.textContent =
+                "🔇";
+
+
+        }
+
+        else if (
+            volumeSlider.value < 0.5
+        ) {
+
+
+            volumeIcon.textContent =
+                "🔉";
+
+
+        }
+
+        else {
+
+
+            volumeIcon.textContent =
+                "🔊";
+
+
+        }
+
+    }
+);
+
+
+
+/* =========================================================
+   VOLUME CONTROL DESIGN
+   ========================================================= */
+
+const volumeStyle =
+    document.createElement(
+        "style"
+    );
+
+
+volumeStyle.textContent = `
+
+    #volumeControl {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 8px;
+
+        margin-top: 8px;
+
+        padding: 7px 12px;
+
+        background:
+            rgba(255, 255, 255, 0.75);
+
+        backdrop-filter:
+            blur(12px);
+
+        -webkit-backdrop-filter:
+            blur(12px);
+
+        border:
+            1px solid
+            rgba(255, 255, 255, 0.8);
+
+        border-radius: 20px;
+
+        box-shadow:
+            0 8px 20px
+            rgba(110, 55, 110, 0.10);
+
+    }
+
+
+    #volumeIcon {
+
+        font-size: 14px;
+
+        user-select: none;
+
+    }
+
+
+    #volumeSlider {
+
+        width: 100px;
+
+        height: 4px;
+
+        cursor: pointer;
+
+        accent-color: #b84b88;
+
+    }
+
+
+    /* When the player is in the corner */
+
+    .music-area.corner #volumeControl {
+
+        margin-top: 7px;
+
+        background:
+            rgba(255, 255, 255, 0.85);
+
+    }
+
+
+    /* Mobile */
+
+    @media (max-width: 650px) {
+
+        #volumeSlider {
+
+            width: 85px;
+
+        }
+
+    }
+
+`;
+
+
+document.head.appendChild(
+    volumeStyle
+);
+
+</script>
+
+<script>
+
+/* =========================================================
+   ADD VOLUME CONTROL TO MUSIC PLAYER
+   ========================================================= */
+
+const songForVolume =
+    document.getElementById("birthdaySong");
+
+const musicAreaForVolume =
+    document.getElementById("musicArea");
+
+
+if (
+    songForVolume &&
+    musicAreaForVolume
+) {
+
+    /* Create volume container */
+
+    const volumeControl =
+        document.createElement("div");
+
+    volumeControl.id =
+        "volumeControl";
+
+
+    volumeControl.innerHTML = `
+
+        <span id="volumeIcon">🔊</span>
+
+        <input
+            type="range"
+            id="volumeSlider"
+            min="0"
+            max="1"
+            step="0.01"
+            value="1"
+        >
+
+    `;
+
+
+    /* Add it underneath the player */
+
+    musicAreaForVolume.appendChild(
+        volumeControl
+    );
+
+
+    /* Volume slider */
+
+    const volumeSlider =
+        document.getElementById(
+            "volumeSlider"
+        );
+
+
+    const volumeIcon =
+        document.getElementById(
+            "volumeIcon"
+        );
+
+
+    volumeSlider.addEventListener(
+        "input",
+        function() {
+
+            songForVolume.volume =
+                volumeSlider.value;
+
+
+            /* Change icon depending on volume */
+
+            if (
+                volumeSlider.value == 0
+            ) {
+
+                volumeIcon.textContent =
+                    "🔇";
+
+            }
+
+            else if (
+                volumeSlider.value < 0.5
+            ) {
+
+                volumeIcon.textContent =
+                    "🔉";
+
+            }
+
+            else {
+
+                volumeIcon.textContent =
+                    "🔊";
+
+            }
+
+        }
+    );
+
+}
+</script>
+<script>
+/* =========================================================
+   VOLUME CONTROL STYLING
+   ========================================================= */
+
+const volumeStyle =
+    document.createElement("style");
+
+
+volumeStyle.textContent = `
+
+    #volumeControl {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 8px;
+
+        margin-top: 8px;
+
+        padding: 7px 12px;
+
+        background:
+            rgba(255, 255, 255, 0.75);
+
+        backdrop-filter:
+            blur(12px);
+
+        -webkit-backdrop-filter:
+            blur(12px);
+
+        border:
+            1px solid
+            rgba(255, 255, 255, 0.8);
+
+        border-radius: 20px;
+
+        box-shadow:
+            0 8px 20px
+            rgba(110, 55, 110, 0.10);
+
+    }
+
+
+    #volumeIcon {
+
+        font-size: 14px;
+
+        user-select: none;
+
+    }
+
+
+    #volumeSlider {
+
+        width: 100px;
+
+        height: 4px;
+
+        cursor: pointer;
+
+        accent-color: #b84b88;
+
+    }
+
+
+    /* Keep the volume control nice when
+       the player moves to the corner */
+
+    .music-area.corner #volumeControl {
+
+        margin-top: 7px;
+
+        background:
+            rgba(255, 255, 255, 0.85);
+
+    }
+
+
+    @media (max-width: 650px) {
+
+        #volumeSlider {
+
+            width: 85px;
+
+        }
+
+    }
+
+`;
+
+
+document.head.appendChild(
+    volumeStyle
+);
+
+</script>
+
+<style>
+
+/* =========================================================
+   MAKE LAST PAGE MESSAGE MATCH THE OTHER TEXT
+   ========================================================= */
+
+#final-message {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(18px, 2.4vw, 22px);
+
+    line-height: 2;
+
+    color: #54364f;
+
+    text-align: center;
+
+    font-weight: normal;
+
+}
+
+#final-message p {
+
+    margin-bottom: 30px;
+
+}
+
+</style>
+
+<style>
+
+.cat-image {
+    width: min(480px, 90vw);
+    max-height: 550px;
+}
+
+</style>
+
+<!-- =========================================================
+     MUSIC PLAYER — TRANSFORMED CORNER VERSION
+     
+     This is an ADD-ON.
+     Do not modify your original music player.
+     ========================================================= -->
+
+<style>
+
+/* =========================================================
+   CORNER MUSIC PLAYER
+   ========================================================= */
+
+.corner-music-player {
+
+    position: fixed;
+
+    top: 20px;
+
+    right: 20px;
+
+    width: 190px;
+
+    padding: 12px;
+
+    z-index: 5000;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    background:
+        rgba(255, 255, 255, 0.78);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.9);
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 18px 45px
+        rgba(90, 40, 90, 0.18);
+
+    opacity: 0;
+
+    transform:
+        translateY(-20px)
+        scale(0.85);
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(.22,1,.36,1);
+
+}
+
+
+/* =========================================================
+   SHOW CORNER PLAYER
+   ========================================================= */
+
+.corner-music-player.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    pointer-events: auto;
+
+}
+
+
+/* =========================================================
+   BIG SONG COVER
+   ========================================================= */
+
+.corner-song-cover {
+
+    width: 165px;
+
+    height: 165px;
+
+    object-fit: cover;
+
+    border-radius: 17px;
+
+    display: block;
+
+    box-shadow:
+        0 10px 25px
+        rgba(80, 35, 80, 0.18);
+
+}
+
+
+/* =========================================================
+   SONG INFORMATION
+   ========================================================= */
+
+.corner-song-info {
+
+    width: 100%;
+
+    margin-top: 10px;
+
+    text-align: center;
+
+}
+
+
+.corner-song-title {
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    color: #6e3566;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+}
+
+
+.corner-song-artist {
+
+    font-size: 11px;
+
+    color: #96728e;
+
+    margin-top: 3px;
+
+}
+
+
+/* =========================================================
+   CONTROLS
+   ========================================================= */
+
+.corner-controls {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 10px;
+
+}
+
+
+/* =========================================================
+   PLAY / STOP BUTTON
+   ========================================================= */
+
+.corner-play-button {
+
+    width: 40px;
+
+    height: 40px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d95b98,
+            #9a67cf
+        );
+
+    color: white;
+
+    font-size: 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    box-shadow:
+        0 6px 15px
+        rgba(140, 65, 140, 0.2);
+
+    transition:
+        transform 0.2s ease;
+
+}
+
+
+.corner-play-button:hover {
+
+    transform:
+        scale(1.08);
+
+}
+
+
+/* =========================================================
+   VOLUME CONTROL
+   ========================================================= */
+
+.corner-volume {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+}
+
+
+.corner-volume-icon {
+
+    font-size: 15px;
+
+    user-select: none;
+
+}
+
+
+.corner-volume-slider {
+
+    width: 65px;
+
+    height: 4px;
+
+    cursor: pointer;
+
+    accent-color: #b84b88;
+
+}
+
+
+/* =========================================================
+   VISUALIZER
+   ========================================================= */
+
+.corner-visualizer {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 2px;
+
+    height: 16px;
+
+    margin-left: 2px;
+
+}
+
+
+.corner-bar {
+
+    width: 3px;
+
+    height: 4px;
+
+    background: #c65a9c;
+
+    border-radius: 3px;
+
+}
+
+
+.corner-music-playing
+.corner-bar {
+
+    animation:
+        cornerMusicBars
+        0.7s
+        ease-in-out
+        infinite alternate;
+
+}
+
+
+.corner-music-playing
+.corner-bar:nth-child(2) {
+
+    animation-delay: 0.15s;
+
+}
+
+
+.corner-music-playing
+.corner-bar:nth-child(3) {
+
+    animation-delay: 0.3s;
+
+}
+
+
+.corner-music-playing
+.corner-bar:nth-child(4) {
+
+    animation-delay: 0.45s;
+
+}
+
+
+@keyframes cornerMusicBars {
+
+    from {
+
+        height: 3px;
+
+    }
+
+    to {
+
+        height: 15px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .corner-music-player {
+
+        top: 12px;
+
+        right: 12px;
+
+        width: 155px;
+
+        padding: 9px;
+
+        border-radius: 18px;
+
+    }
+
+
+    .corner-song-cover {
+
+        width: 135px;
+
+        height: 135px;
+
+    }
+
+
+    .corner-song-title {
+
+        font-size: 12px;
+
+    }
+
+
+    .corner-song-artist {
+
+        font-size: 10px;
+
+    }
+
+
+    .corner-play-button {
+
+        width: 36px;
+
+        height: 36px;
+
+        font-size: 14px;
+
+    }
+
+
+    .corner-volume-slider {
+
+        width: 48px;
+
+    }
+
+}
+
+</style>
+
+
+<!-- =========================================================
+     CORNER MUSIC PLAYER HTML
+     ========================================================= -->
+
+<div
+    id="cornerMusicPlayer"
+    class="corner-music-player"
+>
+
+    <img
+        src="Glue Song.jpg"
+        alt="Song cover"
+        class="corner-song-cover"
+    >
+
+
+    <div class="corner-song-info">
+
+        <div class="corner-song-title">
+            Glue Song
+        </div>
+
+        <div class="corner-song-artist">
+            beabadoobee feat. Clairo
+        </div>
+
+    </div>
+
+
+    <div class="corner-controls">
+
+
+        <!-- PLAY / STOP -->
+
+        <button
+            id="cornerPlayButton"
+            class="corner-play-button"
+        >
+            ▶
+        </button>
+
+
+        <!-- VOLUME -->
+
+        <div class="corner-volume">
+
+            <span
+                id="cornerVolumeIcon"
+                class="corner-volume-icon"
+            >
+                🔊
+            </span>
+
+
+            <input
+                id="cornerVolumeSlider"
+                class="corner-volume-slider"
+                type="range"
+                min="0"
+                max="1"
+                step="0.01"
+                value="1"
+            >
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   CORNER MUSIC PLAYER JAVASCRIPT
+   ========================================================= */
+
+const cornerPlayer =
+    document.getElementById(
+        "cornerMusicPlayer"
+    );
+
+
+const cornerPlayButton =
+    document.getElementById(
+        "cornerPlayButton"
+    );
+
+
+const cornerVolumeSlider =
+    document.getElementById(
+        "cornerVolumeSlider"
+    );
+
+
+const cornerVolumeIcon =
+    document.getElementById(
+        "cornerVolumeIcon"
+    );
+
+
+const originalSong =
+    document.getElementById(
+        "birthdaySong"
+    );
+
+
+/* =========================================================
+   PLAY / STOP
+   ========================================================= */
+
+cornerPlayButton.addEventListener(
+    "click",
+    function() {
+
+
+        if (
+            originalSong.paused
+        ) {
+
+
+            originalSong
+                .play()
+                .then(
+                    function() {
+
+                        cornerPlayButton.textContent =
+                            "Ⅱ";
+
+                        cornerPlayer.classList.add(
+                            "corner-music-playing"
+                        );
+
+                    }
+                );
+
+
+        }
+
+        else {
+
+
+            originalSong.pause();
+
+
+            cornerPlayButton.textContent =
+                "▶";
+
+
+            cornerPlayer.classList.remove(
+                "corner-music-playing"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   VOLUME
+   ========================================================= */
+
+cornerVolumeSlider.addEventListener(
+    "input",
+    function() {
+
+
+        originalSong.volume =
+            cornerVolumeSlider.value;
+
+
+        if (
+            cornerVolumeSlider.value == 0
+        ) {
+
+            cornerVolumeIcon.textContent =
+                "🔇";
+
+        }
+
+        else if (
+            cornerVolumeSlider.value < 0.5
+        ) {
+
+            cornerVolumeIcon.textContent =
+                "🔉";
+
+        }
+
+        else {
+
+            cornerVolumeIcon.textContent =
+                "🔊";
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   SHOW CORNER PLAYER WHEN GOING TO PAGE 2
+   ========================================================= */
+
+/*
+   We watch Page 1.
+
+   Your ORIGINAL code eventually does:
+
+       page1.style.display = "none";
+
+   When that happens, we show our new
+   corner version.
+*/
+
+const pageOneForMusic =
+    document.getElementById(
+        "page1"
+    );
+
+
+const pageWatcher =
+    new MutationObserver(
+        function() {
+
+
+            if (
+                pageOneForMusic.style.display === "none"
+            ) {
+
+
+                /*
+                   Show the new corner player
+                */
+
+                cornerPlayer.classList.add(
+                    "visible"
+                );
+
+
+                /*
+                   Hide the ORIGINAL player
+                   after the transition.
+                   
+                   This prevents two music players
+                   from being visible.
+                */
+
+                setTimeout(
+                    function() {
+
+                        const originalMusicArea =
+                            document.getElementById(
+                                "musicArea"
+                            );
+
+                        if (
+                            originalMusicArea
+                        ) {
+
+                            originalMusicArea.style.display =
+                                "none";
+
+                        }
+
+                    },
+                    800
+                );
+
+            }
+
+        }
+    );
+
+
+pageWatcher.observe(
+    pageOneForMusic,
+    {
+        attributes: true,
+        attributeFilter: ["style"]
+    }
+);
+
+
+/* =========================================================
+   KEEP CORNER PLAYER SYNCHRONIZED
+   ========================================================= */
+
+originalSong.addEventListener(
+    "play",
+    function() {
+
+        cornerPlayButton.textContent =
+            "Ⅱ";
+
+        cornerPlayer.classList.add(
+            "corner-music-playing"
+        );
+
+    }
+);
+
+
+originalSong.addEventListener(
+    "pause",
+    function() {
+
+        cornerPlayButton.textContent =
+            "▶";
+
+        cornerPlayer.classList.remove(
+            "corner-music-playing"
+        );
+
+    }
+);
+
+</script>
+
+<!-- =========================================================
+     GO BACK BUTTONS
+     ========================================================= -->
+
+<style>
+
+.go-back-button {
+
+    position: fixed;
+
+    bottom: 25px;
+
+    left: 25px;
+
+    z-index: 4000;
+
+    border: none;
+
+    cursor: pointer;
+
+    padding: 12px 20px;
+
+    border-radius: 100px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    color: #70405f;
+
+    background:
+        rgba(255, 255, 255, 0.75);
+
+    backdrop-filter:
+        blur(15px);
+
+    -webkit-backdrop-filter:
+        blur(15px);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.9);
+
+    box-shadow:
+        0 8px 25px
+        rgba(100, 50, 100, 0.12);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.25s ease;
+
+}
+
+
+.go-back-button.visible {
+
+    opacity: 1;
+
+    pointer-events: auto;
+
+}
+
+
+.go-back-button:hover {
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+@media (max-width: 650px) {
+
+    .go-back-button {
+
+        bottom: 15px;
+
+        left: 15px;
+
+        padding: 10px 16px;
+
+        font-size: 14px;
+
+    }
+
+}
+
+</style>
+
+
+<!-- PAGE 2 BACK BUTTON -->
+
+<button
+    id="backToPage1"
+    class="go-back-button"
+    onclick="goBackToPage1()"
+>
+    ← Go back
+</button>
+
+
+<!-- PAGE 3 BACK BUTTON -->
+
+<button
+    id="backToPage2"
+    class="go-back-button"
+    onclick="goBackToPage2()"
+>
+    ← Go back
+</button>
+
+
+<script>
+
+/* =========================================================
+   BACK BUTTONS
+   ========================================================= */
+
+const backToPage1 =
+    document.getElementById(
+        "backToPage1"
+    );
+
+const backToPage2 =
+    document.getElementById(
+        "backToPage2"
+    );
+
+
+/* =========================================================
+   SHOW PAGE 2 BACK BUTTON
+   ========================================================= */
+
+const page2ForBackButton =
+    document.getElementById(
+        "page2"
+    );
+
+
+const page2Watcher =
+    new MutationObserver(
+        function() {
+
+            if (
+                page2ForBackButton.style.display === "flex"
+            ) {
+
+                backToPage1.classList.add(
+                    "visible"
+                );
+
+            }
+
+        }
+    );
+
+
+page2Watcher.observe(
+    page2ForBackButton,
+    {
+        attributes: true,
+        attributeFilter: ["style"]
+    }
+);
+
+
+/* =========================================================
+   SHOW PAGE 3 BACK BUTTON
+   ========================================================= */
+
+const page3ForBackButton =
+    document.getElementById(
+        "page3"
+    );
+
+
+const page3Watcher =
+    new MutationObserver(
+        function() {
+
+            if (
+                page3ForBackButton.style.display === "flex"
+            ) {
+
+                backToPage1.classList.remove(
+                    "visible"
+                );
+
+                backToPage2.classList.add(
+                    "visible"
+                );
+
+            }
+
+        }
+    );
+
+
+page3Watcher.observe(
+    page3ForBackButton,
+    {
+        attributes: true,
+        attributeFilter: ["style"]
+    }
+);
+
+
+/* =========================================================
+   PAGE 2 → PAGE 1
+   ========================================================= */
+
+function goBackToPage1() {
+
+    page2ForBackButton.style.transition =
+        "opacity 0.6s ease, transform 0.6s ease";
+
+    page2ForBackButton.style.opacity =
+        "0";
+
+    page2ForBackButton.style.transform =
+        "translateY(20px)";
+
+
+    setTimeout(
+        function() {
+
+            page2ForBackButton.style.display =
+                "none";
+
+
+            document.getElementById(
+                "page1"
+            ).style.display =
+                "flex";
+
+
+            const page1 =
+                document.getElementById(
+                    "page1"
+                );
+
+
+            page1.style.opacity =
+                "0";
+
+            page1.style.transform =
+                "scale(0.97)";
+
+
+            window.scrollTo(
+                0,
+                0
+            );
+
+
+            requestAnimationFrame(
+                function() {
+
+                    page1.style.transition =
+                        "opacity 0.7s ease, transform 0.7s ease";
+
+                    page1.style.opacity =
+                        "1";
+
+                    page1.style.transform =
+                        "scale(1)";
+
+                }
+            );
+
+
+            backToPage1.classList.remove(
+                "visible"
+            );
+
+        },
+        600
+    );
+
+}
+
+
+/* =========================================================
+   PAGE 3 → PAGE 2
+   ========================================================= */
+
+function goBackToPage2() {
+
+    page3ForBackButton.style.transition =
+        "opacity 0.6s ease, transform 0.6s ease";
+
+    page3ForBackButton.style.opacity =
+        "0";
+
+    page3ForBackButton.style.transform =
+        "translateY(20px)";
+
+
+    setTimeout(
+        function() {
+
+            page3ForBackButton.style.display =
+                "none";
+
+
+            page2ForBackButton.style.display =
+                "flex";
+
+
+            page2ForBackButton.style.opacity =
+                "0";
+
+            page2ForBackButton.style.transform =
+                "translateY(20px)";
+
+
+            window.scrollTo(
+                0,
+                0
+            );
+
+
+            requestAnimationFrame(
+                function() {
+
+                    page2ForBackButton.style.transition =
+                        "opacity 0.7s ease, transform 0.7s ease";
+
+                    page2ForBackButton.style.opacity =
+                        "1";
+
+                    page2ForBackButton.style.transform =
+                        "translateY(0)";
+
+                }
+            );
+
+
+            backToPage2.classList.remove(
+                "visible"
+            );
+
+            backToPage1.classList.add(
+                "visible"
+            );
+
+        },
+        600
+    );
+
+}
+
+</script>
+
+
+
+</body>
+
+</html>
