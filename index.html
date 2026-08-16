@@ -754,7 +754,8 @@
             align-items: flex-end;
         }
 
-
+    
+     
         .music-area.corner .music-instruction {
 
             display: none;
@@ -1169,26 +1170,46 @@
             }
 
 
-            .music-player {
+.music-player {
+    width: min(300px, 85vw);
+}
 
-                width:
-                    min(330px, 90vw);
-            }
+.music-area.corner {
+    top: 10px;
+    right: 10px;
+}
 
+.music-area.corner .music-player {
+    width: 190px;
+    padding: 8px;
+    gap: 8px;
+}
 
-            .music-area.corner {
+/* Remove the big song cover on mobile */
+.music-area.corner .song-cover {
+    display: none;
+}
 
-                top: 12px;
+/* Make the text compact */
+.music-area.corner .song-title {
+    font-size: 11px;
+}
 
-                right: 12px;
-            }
+.music-area.corner .song-artist {
+    font-size: 9px;
+}
 
+/* Smaller play button */
+.music-area.corner .music-button {
+    width: 34px;
+    height: 34px;
+    font-size: 14px;
+}
 
-            .music-area.corner .music-player {
-
-                width:
-                    min(270px, 75vw);
-            }
+/* Smaller visualizer */
+.music-area.corner .visualizer {
+    display: none;
+}
 
 
             .flower {
@@ -3959,338 +3980,6 @@ function goBackToPage2() {
 
 </script>
 
-<!-- =========================================================
-     MOVABLE MUSIC PLAYER + "MOVE ME"
-     ADD THIS AT THE VERY END OF YOUR HTML
-     ========================================================= -->
-
-<style>
-
-    /* Make the music player movable */
-    #musicArea.corner {
-        cursor: grab;
-        touch-action: none;
-    }
-
-    #musicArea.corner:active {
-        cursor: grabbing;
-    }
-
-
-    /* MOVE ME label */
-
-    #moveMusicHint {
-
-        position: fixed;
-
-        top: 50px;
-        right: 20px;
-
-        z-index: 1001;
-
-        padding: 7px 12px;
-
-        background: rgba(255, 255, 255, 0.9);
-
-        color: #9a67cf;
-
-        font-family:
-            Georgia,
-            "Times New Roman",
-            serif;
-
-        font-size: 14px;
-
-        font-weight: bold;
-
-        border-radius: 12px;
-
-        box-shadow:
-            0 6px 18px
-            rgba(100, 50, 100, 0.15);
-
-        pointer-events: none;
-
-        animation:
-            moveHintFloat
-            1.5s
-            ease-in-out
-            infinite alternate;
-
-        transition:
-            opacity 0.4s ease;
-
-    }
-
-
-    @keyframes moveHintFloat {
-
-        from {
-            transform: translateY(0);
-        }
-
-        to {
-            transform: translateY(-5px);
-        }
-
-    }
-
-
-    /* Hidden after the player is moved */
-
-    #moveMusicHint.hidden {
-
-        opacity: 0;
-
-    }
-
-</style>
-
-
-<div id="moveMusicHint">
-    MOVE ME 🎵
-</div>
-
-
-<script>
-
-    /* =========================================================
-       MOVABLE MUSIC PLAYER
-       ========================================================= */
-
-    const draggableMusic =
-        document.getElementById("musicArea");
-
-    const moveMusicHint =
-        document.getElementById("moveMusicHint");
-
-
-    let musicDragging = false;
-
-    let musicMoved = false;
-
-    let musicOffsetX = 0;
-
-    let musicOffsetY = 0;
-
-
-    /* =========================================================
-       START DRAGGING
-       ========================================================= */
-
-    draggableMusic.addEventListener(
-        "pointerdown",
-        function(event) {
-
-            /* Only allow dragging when player is in the corner */
-
-            if (
-                !draggableMusic.classList.contains("corner")
-            ) {
-                return;
-            }
-
-
-            musicDragging = true;
-
-
-            const rect =
-                draggableMusic.getBoundingClientRect();
-
-
-            musicOffsetX =
-                event.clientX - rect.left;
-
-
-            musicOffsetY =
-                event.clientY - rect.top;
-
-
-            draggableMusic.setPointerCapture(
-                event.pointerId
-            );
-
-
-            event.preventDefault();
-
-        }
-    );
-
-
-    /* =========================================================
-       MOVE PLAYER
-       ========================================================= */
-
-    draggableMusic.addEventListener(
-        "pointermove",
-        function(event) {
-
-            if (!musicDragging) {
-                return;
-            }
-
-
-            const x =
-                event.clientX - musicOffsetX;
-
-
-            const y =
-                event.clientY - musicOffsetY;
-
-
-            draggableMusic.style.left =
-                x + "px";
-
-
-            draggableMusic.style.top =
-                y + "px";
-
-
-            draggableMusic.style.right =
-                "auto";
-
-
-            draggableMusic.style.bottom =
-                "auto";
-
-
-            draggableMusic.style.position =
-                "fixed";
-
-
-            /* =================================================
-               PLAYER HAS NOW BEEN MOVED
-               ================================================= */
-
-            if (!musicMoved) {
-
-                musicMoved = true;
-
-                moveMusicHint.classList.add(
-                    "hidden"
-                );
-
-            }
-
-        }
-    );
-
-
-    /* =========================================================
-       STOP DRAGGING
-       ========================================================= */
-
-    draggableMusic.addEventListener(
-        "pointerup",
-        function(event) {
-
-            musicDragging = false;
-
-            try {
-
-                draggableMusic.releasePointerCapture(
-                    event.pointerId
-                );
-
-            }
-
-            catch (error) {}
-
-        }
-    );
-
-
-    draggableMusic.addEventListener(
-        "pointercancel",
-        function() {
-
-            musicDragging = false;
-
-        }
-    );
-
-
-    /* =========================================================
-       KEEP "MOVE ME" HIDDEN UNTIL PLAYER REACHES PAGE 2/3
-       ========================================================= */
-
-    const originalGoToSecondPage =
-        window.goToSecondPage;
-
-
-    window.goToSecondPage =
-        function() {
-
-            originalGoToSecondPage();
-
-
-            setTimeout(
-                function() {
-
-                    if (!musicMoved) {
-
-                        moveMusicHint.style.display =
-                            "block";
-
-                    }
-
-                },
-                800
-            );
-
-        };
-
-
-    /* =========================================================
-       POSITION THE "MOVE ME" LABEL
-       ========================================================= */
-
-    function updateMoveHintPosition() {
-
-        if (
-            !draggableMusic.classList.contains("corner")
-            ||
-            musicMoved
-        ) {
-            return;
-        }
-
-
-        const rect =
-            draggableMusic.getBoundingClientRect();
-
-
-        moveMusicHint.style.left =
-            (
-                rect.left +
-                rect.width / 2 -
-                moveMusicHint.offsetWidth / 2
-            )
-            + "px";
-
-
-        moveMusicHint.style.top =
-            (
-                rect.top -
-                45
-            )
-            + "px";
-
-    }
-
-
-    setInterval(
-        updateMoveHintPosition,
-        100
-    );
-
-
-    window.addEventListener(
-        "resize",
-        updateMoveHintPosition
-    );
-
-</script>
 </body>
 
 </html>
