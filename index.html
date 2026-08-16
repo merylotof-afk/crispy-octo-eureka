@@ -10,7 +10,7 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Happy 19th Birthday Safia !</title>
+    <title> Happy 19th Birthday Safia !</title>
 
 
     <style>
@@ -518,7 +518,7 @@
 
 
         /* =========================================================
-           MUSIC AREA
+           MUSIC AREA (PAGE 1 — untouched, stays in place)
            ========================================================= */
 
         .music-area {
@@ -533,9 +533,6 @@
 
             margin:
                 0 auto 35px;
-
-            transition:
-                all 0.8s ease;
         }
 
 
@@ -730,35 +727,6 @@
                 height: 18px;
             }
 
-        }
-
-
-        /* =========================================================
-           MUSIC PLAYER — TOP RIGHT
-           ========================================================= */
-
-        .music-area.corner {
-
-            position: fixed;
-
-            top: 20px;
-
-            right: 20px;
-
-            z-index: 500;
-
-            margin: 0;
-
-            gap: 0;
-
-            align-items: flex-end;
-        }
-
-    
-     
-        .music-area.corner .music-instruction {
-
-            display: none;
         }
 
 
@@ -994,6 +962,11 @@
 
         #final-message {
 
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
             font-size:
                 clamp(22px, 4vw, 42px);
 
@@ -1002,6 +975,8 @@
             color: #743b68;
 
             text-align: center;
+
+            font-weight: normal;
         }
 
 
@@ -1047,9 +1022,9 @@
             display: block;
 
             width:
-                min(380px, 85vw);
+                min(480px, 90vw);
 
-            max-height: 450px;
+            max-height: 550px;
 
             object-fit: contain;
 
@@ -1149,6 +1124,352 @@
 
 
         /* =========================================================
+           DRAGGABLE CORNER MUSIC PLAYER
+           (appears once you leave page 1, replaces the inline player)
+           ========================================================= */
+
+        .corner-music-player {
+
+            position: fixed;
+
+            top: 20px;
+
+            right: 20px;
+
+            width: 190px;
+
+            padding: 12px;
+
+            z-index: 5000;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            background:
+                rgba(255, 255, 255, 0.85);
+
+            backdrop-filter:
+                blur(18px);
+
+            -webkit-backdrop-filter:
+                blur(18px);
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.9);
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 18px 45px
+                rgba(90, 40, 90, 0.18);
+
+            opacity: 0;
+
+            transform:
+                translateY(-20px)
+                scale(0.85);
+
+            pointer-events: none;
+
+            cursor: grab;
+
+            touch-action: none;
+
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s cubic-bezier(.22, 1, .36, 1);
+        }
+
+
+        .corner-music-player.visible {
+
+            opacity: 1;
+
+            transform:
+                translateY(0)
+                scale(1);
+
+            pointer-events: auto;
+        }
+
+
+        .corner-music-player.dragging {
+
+            cursor: grabbing;
+
+            transition: none;
+        }
+
+
+        .corner-cover-wrap {
+
+            position: relative;
+
+            display: inline-block;
+        }
+
+
+        .corner-song-cover {
+
+            width: 165px;
+
+            height: 165px;
+
+            object-fit: cover;
+
+            border-radius: 17px;
+
+            display: block;
+
+            box-shadow:
+                0 10px 25px
+                rgba(80, 35, 80, 0.18);
+        }
+
+
+        .corner-move-hint {
+
+            position: absolute;
+
+            inset: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 10px;
+
+            color: #000;
+
+            font-weight: bold;
+
+            font-size: 14px;
+
+            line-height: 1.3;
+
+            background: rgba(255, 255, 255, 0.6);
+
+            border-radius: 17px;
+
+            pointer-events: none;
+        }
+
+
+        .corner-music-player.moved .corner-move-hint {
+
+            display: none;
+        }
+
+
+        .corner-song-info {
+
+            width: 100%;
+
+            margin-top: 10px;
+
+            text-align: center;
+        }
+
+
+        .corner-song-title {
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            color: #6e3566;
+
+            white-space: nowrap;
+
+            overflow: hidden;
+
+            text-overflow: ellipsis;
+        }
+
+
+        .corner-song-artist {
+
+            font-size: 11px;
+
+            color: #96728e;
+
+            margin-top: 3px;
+        }
+
+
+        .corner-controls {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            margin-top: 10px;
+        }
+
+
+        .corner-play-button {
+
+            width: 40px;
+
+            height: 40px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            cursor: pointer;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #d95b98,
+                    #9a67cf
+                );
+
+            color: white;
+
+            font-size: 16px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            box-shadow:
+                0 6px 15px
+                rgba(140, 65, 140, 0.2);
+
+            transition:
+                transform 0.2s ease;
+        }
+
+
+        .corner-play-button:hover {
+
+            transform: scale(1.08);
+        }
+
+
+        .corner-volume {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 5px;
+        }
+
+
+        .corner-volume-icon {
+
+            font-size: 15px;
+
+            user-select: none;
+        }
+
+
+        .corner-volume-slider {
+
+            width: 65px;
+
+            height: 4px;
+
+            cursor: pointer;
+
+            accent-color: #b84b88;
+
+            touch-action: pan-x;
+        }
+
+
+        /* =========================================================
+           GO BACK BUTTONS
+           ========================================================= */
+
+        .go-back-button {
+
+            position: fixed;
+
+            bottom: 25px;
+
+            left: 25px;
+
+            z-index: 4000;
+
+            border: none;
+
+            cursor: pointer;
+
+            padding: 12px 20px;
+
+            border-radius: 100px;
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            color: #70405f;
+
+            background:
+                rgba(255, 255, 255, 0.75);
+
+            backdrop-filter:
+                blur(15px);
+
+            -webkit-backdrop-filter:
+                blur(15px);
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.9);
+
+            box-shadow:
+                0 8px 25px
+                rgba(100, 50, 100, 0.12);
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition:
+                opacity 0.4s ease,
+                transform 0.25s ease;
+        }
+
+
+        .go-back-button.visible {
+
+            opacity: 1;
+
+            pointer-events: auto;
+        }
+
+
+        .go-back-button:hover {
+
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================================================
            MOBILE
            ========================================================= */
 
@@ -1158,38 +1479,29 @@
             .page {
 
                 padding:
-                    25px 14px;
+                    20px 8px;
             }
 
+
+            /* Narrower cards so the flowers/petals show at the sides */
 
             .birthday-card,
             .long-message-card,
             .final-card {
 
+                width: 88%;
+
+                margin: 0 auto;
+
                 border-radius: 27px;
             }
 
 
-.music-player {
+            .music-player {
 
-    width:
-        min(330px, 90vw);
-}
-
-
-.music-area.corner {
-
-    top: 12px;
-
-    right: 12px;
-}
-
-
-.music-area.corner .music-player {
-
-    width:
-        min(270px, 75vw);
-}
+                width:
+                    min(300px, 90vw);
+            }
 
 
             .flower {
@@ -1237,6 +1549,76 @@
 
                 width:
                     min(330px, 80vw);
+            }
+
+
+            .corner-music-player {
+
+                top: 12px;
+
+                right: 12px;
+
+                width: 155px;
+
+                padding: 9px;
+
+                border-radius: 18px;
+            }
+
+
+            .corner-song-cover {
+
+                width: 135px;
+
+                height: 135px;
+            }
+
+
+            .corner-move-hint {
+
+                font-size: 12px;
+
+                padding: 6px;
+            }
+
+
+            .corner-song-title {
+
+                font-size: 12px;
+            }
+
+
+            .corner-song-artist {
+
+                font-size: 10px;
+            }
+
+
+            .corner-play-button {
+
+                width: 36px;
+
+                height: 36px;
+
+                font-size: 14px;
+            }
+
+
+            .corner-volume-slider {
+
+                width: 48px;
+            }
+
+
+            .go-back-button {
+
+                bottom: 15px;
+
+                left: 15px;
+
+                padding: 10px 16px;
+
+                font-size: 14px;
             }
 
         }
@@ -1425,8 +1807,6 @@
                     Take the time to read everything and listen to some music
                     and please don't be upset at me for doing this :')
 
-
-
                 </p>
 <p>
 
@@ -1439,7 +1819,7 @@
 
 
             <!-- =================================================
-                 MUSIC
+                 MUSIC — PAGE 1, unchanged
                  ================================================= -->
 
             <div
@@ -1503,19 +1883,13 @@
 
 
 
-                    <!-- =================================================
-                         MUSIC BUTTON
-                         SAME SIZE / SAME APPEARANCE
-                         ================================================= -->
-
-                   <button 
-    type="button"
-    class="music-button" 
-    id="musicButton"
-    onclick="toggleMusic()"
->
-    ▶
-</button>
+                    <button
+                        type="button"
+                        class="music-button"
+                        id="musicButton"
+                    >
+                        ▶
+                    </button>
 
 
                 </div>
@@ -1580,7 +1954,7 @@ A good old "birthday card message" (also known as jarida)
             <div class="long-message">
 <br>
 
-                <p>
+                 <p>
           Hello !! :) Happy birthday !!!!!! (hope you didn't open it before). As you already know,
           I probably won't be able to see you for your birthday. I couldn't find a gift good enough
           to give you so i thought why not make a gift myself? it's my first time ever making an
@@ -1589,10 +1963,10 @@ A good old "birthday card message" (also known as jarida)
           they genuinely took a bit of time and effort to make. Please keep them forever Safia. no
           matter what happens between us, keep them as a reminder I'm always here for you whenever you
           need someone, no matter the circumstances! </p>
-<p>
+                   <p>
           This is about to get a bit sad, so hold on tight kheraya :)
-</p>
-<p>
+                  </p>
+                   <p>
           Safia, you know I'm a woman of my word right? So, I'm gonna try my best to be a good friend to
           you and stand by your side, and also remind you of prayer and motivate you to fast (ba9i mansitch >:(
           btw that was supposed to be that angry emoji in a sarcastic tone). All this and more in hopes to
@@ -1601,14 +1975,14 @@ A good old "birthday card message" (also known as jarida)
           you, and I'll forever be grateful for all this time. I genuinely and truly look forward to becoming
           someone you can count on at any time, if that wasn't the case already.
 
-        </p>
-        <p>
+                   </p>
+                    <p>
           I'm not pretending that it's gonna be easy, because it's not, but one thing I've learned in my very
           relatively long life (this is a pun intended on me explaining the half of your age thing), is that, if
           we're willing to put in the effort, it will eventually work! Never despair kheraya :')
-        </p>
+               </p>
 
-      <p>
+               <p>
           You are truly someone special. As I've already told you, I sit and ask myself, is there someone out there,
           in this world, that could be like this kheraya? And it genuinely is impossible. It's like when I tell you
           this is so you, like nobody could ever say or do that thing fhemti? Btw it seems soooo "unprofessional"
@@ -1618,8 +1992,8 @@ A good old "birthday card message" (also known as jarida)
           What I'm trying to say here, please stay who you are. Grow into this amazing soul you already have, just like
           when a flower is all closed then it blooms. It's a fricking cycle, and a beautiful one at that. Let me explain:
  
-        </p>
-<p>
+              </p>
+               <p>
           You first are a seed, that seed is pollinated (?) by bees and whatnot, then you're nourished by the sun and water
           and all the nutriments in the soil (the metaphor here is that you are hit by so many things from life you have no
           control over, just like the seed doesn't control what it feeds on). Then, you turn into this beautiful flower,
@@ -1629,19 +2003,20 @@ A good old "birthday card message" (also known as jarida)
           this just means there's always someone rooting for you, there to help you bloom once again into that beautiful flower,
           no matter how many times you feel down or how many obstacles you face (the flower fading metaphor).
  
-        </p>
-<p>
+                </p>
+            <p>
           All and all, I need you to understand who tf you are. You're a wonderful daughter, an amazing friend, and you're 
           probably the kind of person someone might've met you once but recalls that interaction often.You're 1/1 kheraya, 
           and you're so very special and dear to me.  
           You truly are a lily in a field of roses.
           
-        </p>
-<p>
+                  </p>
+              <p>
           I know you probably think all of this is corny, but never change kheraya, you're such an amazing person to the point that
           someone who has never met you heard me talk about you and said to me "she must be such a sweet person".
-</p>
-        <h2>  You are worthy of everything beautiful in this world. </h2>
+               </p>
+
+        <h2>  You are worthy of everything beautiful in this world. 🫶🏾 </h2>
 
 
 
@@ -1740,7 +2115,7 @@ You made it all the way here. </h2>
 
                 </p>
             <h2 style="font-size: 40px;">
-                    Again, Happy 19th Birthday
+                    Again, Happy Birthday
                     KHERAYAAAAAAAAA!!!🎂🎉
            </h2>
 
@@ -1788,7 +2163,7 @@ Wanna see this again?
 
                     <div class="cat-speech">
 
-                       BYEBYEEEEE KHERAYAAAA !!! 👋🫶🏾
+                       BYEBYEEEEE !!! 👋🫶🏾
 
 
                     </div>
@@ -1813,121 +2188,323 @@ Wanna see this again?
 
 
     <!-- =========================================================
+         DRAGGABLE CORNER MUSIC PLAYER
+         Only visible from page 2 onward. Draggable anywhere on
+         screen, on desktop and mobile.
+         ========================================================= -->
+
+    <div
+        id="cornerMusicPlayer"
+        class="corner-music-player"
+    >
+
+        <div class="corner-cover-wrap">
+
+            <img
+                src="Glue Song.jpg"
+                alt="Song cover"
+                class="corner-song-cover"
+            >
+
+            <div class="corner-move-hint">
+                You can move me!
+            </div>
+
+        </div>
+
+
+        <div class="corner-song-info">
+
+            <div class="corner-song-title">
+                Glue Song
+            </div>
+
+            <div class="corner-song-artist">
+                beabadoobee feat. Clairo
+            </div>
+
+        </div>
+
+
+        <div class="corner-controls">
+
+            <button
+                id="cornerPlayButton"
+                type="button"
+                class="corner-play-button"
+            >
+                ▶
+            </button>
+
+            <div class="corner-volume">
+
+                <span
+                    id="cornerVolumeIcon"
+                    class="corner-volume-icon"
+                >
+                    🔊
+                </span>
+
+                <input
+                    id="cornerVolumeSlider"
+                    class="corner-volume-slider"
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.01"
+                    value="1"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================================
+         GO BACK BUTTONS
+         ========================================================= -->
+
+    <button
+        id="backToPage1"
+        class="go-back-button"
+        onclick="goBackToPage1()"
+    >
+        ← Go back
+    </button>
+
+
+    <button
+        id="backToPage2"
+        class="go-back-button"
+        onclick="goBackToPage2()"
+    >
+        ← Go back
+    </button>
+
+
+
+    <!-- =========================================================
          JAVASCRIPT
          ========================================================= -->
 
     <script>
 
-
         /* =========================================================
-           MUSIC
+           ELEMENTS
            ========================================================= */
 
-        const song =
-            document.getElementById(
-                "birthdaySong"
-            );
+        const song = document.getElementById("birthdaySong");
 
+        const musicButton = document.getElementById("musicButton");
+        const musicPlayer = document.getElementById("musicPlayer");
+        const musicArea = document.getElementById("musicArea");
 
-        const musicButton =
-            document.getElementById(
-                "musicButton"
-            );
+        const cornerPlayer = document.getElementById("cornerMusicPlayer");
+        const cornerPlayButton = document.getElementById("cornerPlayButton");
+        const cornerVolumeSlider = document.getElementById("cornerVolumeSlider");
+        const cornerVolumeIcon = document.getElementById("cornerVolumeIcon");
 
+        const page1 = document.getElementById("page1");
+        const page2 = document.getElementById("page2");
+        const page3 = document.getElementById("page3");
 
-        const musicArea =
-            document.getElementById(
-                "musicArea"
-            );
-
-
-        const musicPlayer =
-            document.getElementById(
-                "musicPlayer"
-            );
+        const backToPage1 = document.getElementById("backToPage1");
+        const backToPage2 = document.getElementById("backToPage2");
 
 
         /* =========================================================
-           MUSIC BUTTON
-           The button keeps exactly the same size and appearance.
+           MUSIC — shared play/pause logic
+           Both the page-1 player and the corner player control
+           the same <audio> element, so they always stay in sync.
            ========================================================= */
 
-        musicButton.addEventListener(
-            "click",
-            function () {
+        function toggleMusic() {
 
-                if (song.paused) {
+            if (song.paused) {
 
-                    song.play()
-                        .then(function () {
+                song.play().catch(function (error) {
 
-                            musicButton.textContent = "Ⅱ";
+                    console.error("Music could not be played:", error);
 
-                            musicPlayer.classList.add(
-                                "music-playing"
-                            );
+                    alert("The music could not be played. Make sure \"Glue Song.mp3\" is in the same folder as this HTML file.");
 
-                        })
-                        .catch(function (error) {
+                });
 
-                            console.error(
-                                "Music could not be played:",
-                                error
-                            );
+            } else {
 
-                            alert(
-                                "The music could not be played. Make sure birthday-song.mp3 is in the same folder as this HTML file."
-                            );
-
-                        });
-
-                }
-
-                else {
-
-                    song.pause();
-
-                    musicButton.textContent = "▶";
-
-                    musicPlayer.classList.remove(
-                        "music-playing"
-                    );
-
-                }
+                song.pause();
 
             }
-        );
+
+        }
 
 
-        /* Keep the button correct if the audio is paused elsewhere */
+        musicButton.addEventListener("click", toggleMusic);
+        cornerPlayButton.addEventListener("click", toggleMusic);
 
-        song.addEventListener(
-            "pause",
-            function () {
 
-                musicButton.textContent = "▶";
+        song.addEventListener("play", function () {
 
-                musicPlayer.classList.remove(
-                    "music-playing"
-                );
+            musicButton.textContent = "Ⅱ";
+            musicPlayer.classList.add("music-playing");
+
+            cornerPlayButton.textContent = "Ⅱ";
+            cornerPlayer.classList.add("corner-music-playing");
+
+        });
+
+
+        song.addEventListener("pause", function () {
+
+            musicButton.textContent = "▶";
+            musicPlayer.classList.remove("music-playing");
+
+            cornerPlayButton.textContent = "▶";
+            cornerPlayer.classList.remove("corner-music-playing");
+
+        });
+
+
+        /* =========================================================
+           VOLUME (corner player only)
+           ========================================================= */
+
+        cornerVolumeSlider.addEventListener("input", function () {
+
+            song.volume = cornerVolumeSlider.value;
+
+            if (song.volume == 0) {
+
+                cornerVolumeIcon.textContent = "🔇";
+
+            } else if (song.volume < 0.5) {
+
+                cornerVolumeIcon.textContent = "🔉";
+
+            } else {
+
+                cornerVolumeIcon.textContent = "🔊";
 
             }
-        );
+
+        });
 
 
-        song.addEventListener(
-            "play",
-            function () {
+        /* =========================================================
+           SWITCH BETWEEN PAGE-1 PLAYER AND CORNER PLAYER
+           Page 1's player never moves or changes. Once page 1 is
+           hidden, the corner player fades in top-right; going back
+           hides the corner player and restores the page-1 one.
+           ========================================================= */
 
-                musicButton.textContent = "Ⅱ";
+        const pageOneWatcher = new MutationObserver(function () {
 
-                musicPlayer.classList.add(
-                    "music-playing"
-                );
+            if (page1.style.display === "none") {
+
+                cornerPlayer.classList.add("visible");
+
+                setTimeout(function () {
+
+                    musicArea.style.display = "none";
+
+                }, 800);
+
+            } else {
+
+                cornerPlayer.classList.remove("visible");
+                musicArea.style.display = "flex";
 
             }
-        );
 
+        });
+
+
+        pageOneWatcher.observe(page1, {
+            attributes: true,
+            attributeFilter: ["style"]
+        });
+
+
+        /* =========================================================
+           DRAG THE CORNER PLAYER ANYWHERE ON SCREEN
+           Works with mouse and touch via Pointer Events.
+           The "You can move me!" hint disappears after the first
+           successful drag.
+           ========================================================= */
+
+        let isDragging = false;
+        let dragOffsetX = 0;
+        let dragOffsetY = 0;
+
+        cornerPlayer.addEventListener("pointerdown", function (e) {
+
+            if (e.target.closest(".corner-play-button") || e.target.closest(".corner-volume-slider")) {
+
+                return;
+
+            }
+
+            isDragging = true;
+
+            cornerPlayer.classList.add("dragging");
+
+            cornerPlayer.setPointerCapture(e.pointerId);
+
+            const rect = cornerPlayer.getBoundingClientRect();
+
+            dragOffsetX = e.clientX - rect.left;
+            dragOffsetY = e.clientY - rect.top;
+
+            cornerPlayer.style.left = rect.left + "px";
+            cornerPlayer.style.top = rect.top + "px";
+            cornerPlayer.style.right = "auto";
+
+        });
+
+
+        cornerPlayer.addEventListener("pointermove", function (e) {
+
+            if (!isDragging) {
+
+                return;
+
+            }
+
+            const maxLeft = window.innerWidth - cornerPlayer.offsetWidth;
+            const maxTop = window.innerHeight - cornerPlayer.offsetHeight;
+
+            let newLeft = e.clientX - dragOffsetX;
+            let newTop = e.clientY - dragOffsetY;
+
+            newLeft = Math.max(0, Math.min(newLeft, maxLeft));
+            newTop = Math.max(0, Math.min(newTop, maxTop));
+
+            cornerPlayer.style.left = newLeft + "px";
+            cornerPlayer.style.top = newTop + "px";
+
+            if (!cornerPlayer.classList.contains("moved")) {
+
+                cornerPlayer.classList.add("moved");
+
+            }
+
+        });
+
+
+        function endDrag() {
+
+            isDragging = false;
+
+            cornerPlayer.classList.remove("dragging");
+
+        }
+
+
+        cornerPlayer.addEventListener("pointerup", endDrag);
+        cornerPlayer.addEventListener("pointercancel", endDrag);
 
 
         /* =========================================================
@@ -1936,15 +2513,9 @@ Wanna see this again?
 
         function createConfetti(amount) {
 
-
-            const container =
-                document.getElementById(
-                    "confetti-container"
-                );
-
+            const container = document.getElementById("confetti-container");
 
             const colors = [
-
                 "#ff65a3",
                 "#d9468d",
                 "#a855c7",
@@ -1953,126 +2524,56 @@ Wanna see this again?
                 "#c084fc",
                 "#ffffff",
                 "#ffd166"
-
             ];
 
+            for (let i = 0; i < amount; i++) {
 
-            for (
-                let i = 0;
-                i < amount;
-                i++
-            ) {
+                const piece = document.createElement("div");
 
+                piece.className = "confetti";
 
-                const piece =
-                    document.createElement(
-                        "div"
-                    );
+                piece.style.left = Math.random() * 100 + "%";
 
+                piece.style.background = colors[Math.floor(Math.random() * colors.length)];
 
-                piece.className =
-                    "confetti";
+                piece.style.width = (Math.random() * 8 + 5) + "px";
 
+                piece.style.height = (Math.random() * 12 + 8) + "px";
 
-                piece.style.left =
-                    Math.random() * 100 + "%";
+                piece.style.animationDuration = (Math.random() * 3 + 2) + "s";
 
+                piece.style.animationDelay = (Math.random() * 0.8) + "s";
 
-                piece.style.background =
-                    colors[
-                        Math.floor(
-                            Math.random()
-                            * colors.length
-                        )
-                    ];
+                piece.style.setProperty("--drift", (Math.random() * 300 - 150) + "px");
 
+                container.appendChild(piece);
 
-                piece.style.width =
-                    (
-                        Math.random() * 8
-                        + 5
-                    )
-                    + "px";
+                setTimeout(function () {
 
+                    piece.remove();
 
-                piece.style.height =
-                    (
-                        Math.random() * 12
-                        + 8
-                    )
-                    + "px";
-
-
-                piece.style.animationDuration =
-                    (
-                        Math.random() * 3
-                        + 2
-                    )
-                    + "s";
-
-
-                piece.style.animationDelay =
-                    (
-                        Math.random() * 0.8
-                    )
-                    + "s";
-
-
-                piece.style.setProperty(
-                    "--drift",
-                    (
-                        Math.random() * 300
-                        - 150
-                    )
-                    + "px"
-                );
-
-
-                container.appendChild(
-                    piece
-                );
-
-
-                setTimeout(
-                    () => {
-
-                        piece.remove();
-
-                    },
-                    6500
-                );
+                }, 6500);
 
             }
 
         }
 
 
-
         /* =========================================================
            OPENING CONFETTI
            ========================================================= */
 
-        window.addEventListener(
-            "load",
-            function () {
+        window.addEventListener("load", function () {
 
+            createConfetti(180);
 
-                createConfetti(180);
+            setTimeout(function () {
 
+                createConfetti(80);
 
-                setTimeout(
-                    function () {
+            }, 900);
 
-                        createConfetti(80);
-
-                    },
-                    900
-                );
-
-
-            }
-        );
-
+        });
 
 
         /* =========================================================
@@ -2081,88 +2582,31 @@ Wanna see this again?
 
         function goToSecondPage() {
 
+            page1.style.transition = "opacity 0.7s ease, transform 0.7s ease";
+            page1.style.opacity = "0";
+            page1.style.transform = "scale(0.96)";
 
-            const page1 =
-                document.getElementById(
-                    "page1"
-                );
+            setTimeout(function () {
 
+                page1.style.display = "none";
 
-            const page2 =
-                document.getElementById(
-                    "page2"
-                );
+                page2.style.display = "flex";
+                page2.style.opacity = "0";
+                page2.style.transform = "translateY(25px)";
 
+                window.scrollTo(0, 0);
 
-            musicArea.classList.add(
-                "corner"
-            );
+                requestAnimationFrame(function () {
 
+                    page2.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+                    page2.style.opacity = "1";
+                    page2.style.transform = "translateY(0)";
 
-            page1.style.transition =
-                "opacity 0.7s ease, transform 0.7s ease";
+                });
 
-
-            page1.style.opacity =
-                "0";
-
-
-            page1.style.transform =
-                "scale(0.96)";
-
-
-            setTimeout(
-                function () {
-
-
-                    page1.style.display =
-                        "none";
-
-
-                    page2.style.display =
-                        "flex";
-
-
-                    page2.style.opacity =
-                        "0";
-
-
-                    page2.style.transform =
-                        "translateY(25px)";
-
-
-                    window.scrollTo(
-                        0,
-                        0
-                    );
-
-
-                    requestAnimationFrame(
-                        function () {
-
-
-                            page2.style.transition =
-                                "opacity 0.8s ease, transform 0.8s ease";
-
-
-                            page2.style.opacity =
-                                "1";
-
-
-                            page2.style.transform =
-                                "translateY(0)";
-
-
-                        }
-                    );
-
-
-                },
-                700
-            );
+            }, 700);
 
         }
-
 
 
         /* =========================================================
@@ -2171,106 +2615,45 @@ Wanna see this again?
 
         function goToFinalPage() {
 
+            page2.style.transition = "opacity 0.7s ease, transform 0.7s ease";
+            page2.style.opacity = "0";
+            page2.style.transform = "scale(0.97)";
 
-            const page2 =
-                document.getElementById(
-                    "page2"
-                );
+            setTimeout(function () {
 
+                page2.style.display = "none";
 
-            const page3 =
-                document.getElementById(
-                    "page3"
-                );
+                page3.style.display = "flex";
+                page3.style.opacity = "0";
+                page3.style.transform = "translateY(20px)";
 
+                window.scrollTo(0, 0);
 
-            page2.style.transition =
-                "opacity 0.7s ease, transform 0.7s ease";
+                requestAnimationFrame(function () {
 
+                    page3.style.transition = "opacity 1s ease, transform 1s ease";
+                    page3.style.opacity = "1";
+                    page3.style.transform = "translateY(0)";
 
-            page2.style.opacity =
-                "0";
+                    createConfetti(350);
 
+                    setTimeout(function () {
 
-            page2.style.transform =
-                "scale(0.97)";
+                        createConfetti(200);
 
+                    }, 700);
 
-            setTimeout(
-                function () {
+                    setTimeout(function () {
 
+                        createConfetti(150);
 
-                    page2.style.display =
-                        "none";
+                    }, 1500);
 
+                });
 
-                    page3.style.display =
-                        "flex";
-
-
-                    page3.style.opacity =
-                        "0";
-
-
-                    page3.style.transform =
-                        "translateY(20px)";
-
-
-                    window.scrollTo(
-                        0,
-                        0
-                    );
-
-
-                    requestAnimationFrame(
-                        function () {
-
-
-                            page3.style.transition =
-                                "opacity 1s ease, transform 1s ease";
-
-
-                            page3.style.opacity =
-                                "1";
-
-
-                            page3.style.transform =
-                                "translateY(0)";
-
-
-                            createConfetti(350);
-
-
-                            setTimeout(
-                                function () {
-
-                                    createConfetti(200);
-
-                                },
-                                700
-                            );
-
-
-                            setTimeout(
-                                function () {
-
-                                    createConfetti(150);
-
-                                },
-                                1500
-                            );
-
-
-                        }
-                    );
-
-
-                },
-                700
-            );
+            }, 700);
 
         }
-
 
 
         /* =========================================================
@@ -2279,1686 +2662,123 @@ Wanna see this again?
 
         function sayGoodbye() {
 
+            const cat = document.getElementById("cat-goodbye");
 
-            const cat =
-                document.getElementById(
-                    "cat-goodbye"
-                );
-
-
-            cat.style.display =
-                "block";
-
+            cat.style.display = "block";
 
             createConfetti(80);
 
         }
 
 
+        /* =========================================================
+           GO BACK BUTTONS — visibility
+           ========================================================= */
+
+        const page2Watcher = new MutationObserver(function () {
+
+            if (page2.style.display === "flex") {
+
+                backToPage1.classList.add("visible");
+
+            }
+
+        });
+
+        page2Watcher.observe(page2, {
+            attributes: true,
+            attributeFilter: ["style"]
+        });
+
+
+        const page3Watcher = new MutationObserver(function () {
+
+            if (page3.style.display === "flex") {
+
+                backToPage1.classList.remove("visible");
+                backToPage2.classList.add("visible");
+
+            }
+
+        });
+
+        page3Watcher.observe(page3, {
+            attributes: true,
+            attributeFilter: ["style"]
+        });
+
+
+        /* =========================================================
+           PAGE 2 → PAGE 1
+           ========================================================= */
+
+        function goBackToPage1() {
+
+            page2.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+            page2.style.opacity = "0";
+            page2.style.transform = "translateY(20px)";
+
+            setTimeout(function () {
+
+                page2.style.display = "none";
+
+                page1.style.display = "flex";
+                page1.style.opacity = "0";
+                page1.style.transform = "scale(0.97)";
+
+                window.scrollTo(0, 0);
+
+                requestAnimationFrame(function () {
+
+                    page1.style.transition = "opacity 0.7s ease, transform 0.7s ease";
+                    page1.style.opacity = "1";
+                    page1.style.transform = "scale(1)";
+
+                });
+
+                backToPage1.classList.remove("visible");
+
+            }, 600);
+
+        }
+
+
+        /* =========================================================
+           PAGE 3 → PAGE 2
+           ========================================================= */
+
+        function goBackToPage2() {
+
+            page3.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+            page3.style.opacity = "0";
+            page3.style.transform = "translateY(20px)";
+
+            setTimeout(function () {
+
+                page3.style.display = "none";
+
+                page2.style.display = "flex";
+                page2.style.opacity = "0";
+                page2.style.transform = "translateY(20px)";
+
+                window.scrollTo(0, 0);
+
+                requestAnimationFrame(function () {
+
+                    page2.style.transition = "opacity 0.7s ease, transform 0.7s ease";
+                    page2.style.opacity = "1";
+                    page2.style.transform = "translateY(0)";
+
+                });
+
+                backToPage2.classList.remove("visible");
+                backToPage1.classList.add("visible");
+
+            }, 600);
+
+        }
+
     </script>
-
-<script>
-
-/* =========================================================
-   KEEP MUSIC PLAYER BETWEEN PAGES
-   + ADD VOLUME CONTROL
-   ========================================================= */
-
-document.addEventListener("click", function(event) {
-
-    /* Detect the "Click to see what's next" button */
-    const button = event.target.closest(".birthday-button");
-
-    if (
-        button &&
-        button.textContent.includes("what's next")
-    ) {
-
-        /* Move the music player OUTSIDE Page 1
-           before Page 1 disappears */
-
-        const musicArea =
-            document.getElementById("musicArea");
-
-        if (musicArea && musicArea.parentElement.id === "page1") {
-
-            document.body.appendChild(musicArea);
-
-        }
-
-    }
-
-}, true);
-
-
-<!-- =========================================================
-     EXTRA MUSIC CONTROLS
-     
-     Keeps the music player visible between pages
-     and adds an adjustable volume slider.
-     ========================================================= -->
-
-<script>
-
-/* =========================================================
-   KEEP MUSIC PLAYER VISIBLE BETWEEN PAGES
-   ========================================================= */
-
-const permanentMusicArea =
-    document.getElementById("musicArea");
-
-const firstPage =
-    document.getElementById("page1");
-
-
-/*
-   Watch Page 1 for changes.
-
-   When your original code hides Page 1,
-   the music player is moved directly into
-   the body so it does NOT disappear.
-*/
-
-const musicWatcher =
-    new MutationObserver(function() {
-
-
-        if (
-            firstPage.style.display === "none" &&
-            permanentMusicArea.parentElement !== document.body
-        ) {
-
-
-            document.body.appendChild(
-                permanentMusicArea
-            );
-
-
-        }
-
-    });
-
-
-musicWatcher.observe(
-    firstPage,
-    {
-        attributes: true,
-        attributeFilter: ["style"]
-    }
-);
-
-
-/*
-   Keep the player in the top-right corner.
-*/
-
-permanentMusicArea.classList.add(
-    "corner"
-);
-
-
-
-/* =========================================================
-   ADJUSTABLE VOLUME CONTROL
-   ========================================================= */
-
-const songForVolume =
-    document.getElementById(
-        "birthdaySong"
-    );
-
-
-/* Create volume control */
-
-const volumeControl =
-    document.createElement(
-        "div"
-    );
-
-
-volumeControl.id =
-    "volumeControl";
-
-
-volumeControl.innerHTML = `
-
-    <span id="volumeIcon">
-        🔊
-    </span>
-
-    <input
-        type="range"
-        id="volumeSlider"
-        min="0"
-        max="1"
-        step="0.01"
-        value="1"
-    >
-
-`;
-
-
-
-/*
-   Put the volume control underneath
-   the music player.
-*/
-
-permanentMusicArea.appendChild(
-    volumeControl
-);
-
-
-
-/* =========================================================
-   VOLUME SLIDER FUNCTION
-   ========================================================= */
-
-const volumeSlider =
-    document.getElementById(
-        "volumeSlider"
-    );
-
-
-const volumeIcon =
-    document.getElementById(
-        "volumeIcon"
-    );
-
-
-volumeSlider.addEventListener(
-    "input",
-    function() {
-
-
-        songForVolume.volume =
-            volumeSlider.value;
-
-
-        /*
-           Change the speaker icon
-           depending on the volume.
-        */
-
-        if (
-            volumeSlider.value == 0
-        ) {
-
-
-            volumeIcon.textContent =
-                "🔇";
-
-
-        }
-
-        else if (
-            volumeSlider.value < 0.5
-        ) {
-
-
-            volumeIcon.textContent =
-                "🔉";
-
-
-        }
-
-        else {
-
-
-            volumeIcon.textContent =
-                "🔊";
-
-
-        }
-
-    }
-);
-
-
-
-/* =========================================================
-   VOLUME CONTROL DESIGN
-   ========================================================= */
-
-const volumeStyle =
-    document.createElement(
-        "style"
-    );
-
-
-volumeStyle.textContent = `
-
-    #volumeControl {
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        gap: 8px;
-
-        margin-top: 8px;
-
-        padding: 7px 12px;
-
-        background:
-            rgba(255, 255, 255, 0.75);
-
-        backdrop-filter:
-            blur(12px);
-
-        -webkit-backdrop-filter:
-            blur(12px);
-
-        border:
-            1px solid
-            rgba(255, 255, 255, 0.8);
-
-        border-radius: 20px;
-
-        box-shadow:
-            0 8px 20px
-            rgba(110, 55, 110, 0.10);
-
-    }
-
-
-    #volumeIcon {
-
-        font-size: 14px;
-
-        user-select: none;
-
-    }
-
-
-    #volumeSlider {
-
-        width: 100px;
-
-        height: 4px;
-
-        cursor: pointer;
-
-        accent-color: #b84b88;
-
-    }
-
-
-    /* When the player is in the corner */
-
-    .music-area.corner #volumeControl {
-
-        margin-top: 7px;
-
-        background:
-            rgba(255, 255, 255, 0.85);
-
-    }
-
-
-    /* Mobile */
-
-    @media (max-width: 650px) {
-
-        #volumeSlider {
-
-            width: 85px;
-
-        }
-
-    }
-
-`;
-
-
-document.head.appendChild(
-    volumeStyle
-);
-
-</script>
-
-<script>
-
-/* =========================================================
-   ADD VOLUME CONTROL TO MUSIC PLAYER
-   ========================================================= */
-
-const songForVolume =
-    document.getElementById("birthdaySong");
-
-const musicAreaForVolume =
-    document.getElementById("musicArea");
-
-
-if (
-    songForVolume &&
-    musicAreaForVolume
-) {
-
-    /* Create volume container */
-
-    const volumeControl =
-        document.createElement("div");
-
-    volumeControl.id =
-        "volumeControl";
-
-
-    volumeControl.innerHTML = `
-
-        <span id="volumeIcon">🔊</span>
-
-        <input
-            type="range"
-            id="volumeSlider"
-            min="0"
-            max="1"
-            step="0.01"
-            value="1"
-        >
-
-    `;
-
-
-    /* Add it underneath the player */
-
-    musicAreaForVolume.appendChild(
-        volumeControl
-    );
-
-
-    /* Volume slider */
-
-    const volumeSlider =
-        document.getElementById(
-            "volumeSlider"
-        );
-
-
-    const volumeIcon =
-        document.getElementById(
-            "volumeIcon"
-        );
-
-
-    volumeSlider.addEventListener(
-        "input",
-        function() {
-
-            songForVolume.volume =
-                volumeSlider.value;
-
-
-            /* Change icon depending on volume */
-
-            if (
-                volumeSlider.value == 0
-            ) {
-
-                volumeIcon.textContent =
-                    "🔇";
-
-            }
-
-            else if (
-                volumeSlider.value < 0.5
-            ) {
-
-                volumeIcon.textContent =
-                    "🔉";
-
-            }
-
-            else {
-
-                volumeIcon.textContent =
-                    "🔊";
-
-            }
-
-        }
-    );
-
-}
-</script>
-<script>
-/* =========================================================
-   VOLUME CONTROL STYLING
-   ========================================================= */
-
-const volumeStyle =
-    document.createElement("style");
-
-
-volumeStyle.textContent = `
-
-    #volumeControl {
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        gap: 8px;
-
-        margin-top: 8px;
-
-        padding: 7px 12px;
-
-        background:
-            rgba(255, 255, 255, 0.75);
-
-        backdrop-filter:
-            blur(12px);
-
-        -webkit-backdrop-filter:
-            blur(12px);
-
-        border:
-            1px solid
-            rgba(255, 255, 255, 0.8);
-
-        border-radius: 20px;
-
-        box-shadow:
-            0 8px 20px
-            rgba(110, 55, 110, 0.10);
-
-    }
-
-
-    #volumeIcon {
-
-        font-size: 14px;
-
-        user-select: none;
-
-    }
-
-
-    #volumeSlider {
-
-        width: 100px;
-
-        height: 4px;
-
-        cursor: pointer;
-
-        accent-color: #b84b88;
-
-    }
-
-
-    /* Keep the volume control nice when
-       the player moves to the corner */
-
-    .music-area.corner #volumeControl {
-
-        margin-top: 7px;
-
-        background:
-            rgba(255, 255, 255, 0.85);
-
-    }
-
-
-    @media (max-width: 650px) {
-
-        #volumeSlider {
-
-            width: 85px;
-
-        }
-
-    }
-
-`;
-
-
-document.head.appendChild(
-    volumeStyle
-);
-
-</script>
-
-<style>
-
-/* =========================================================
-   MAKE LAST PAGE MESSAGE MATCH THE OTHER TEXT
-   ========================================================= */
-
-#final-message {
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        clamp(18px, 2.4vw, 22px);
-
-    line-height: 2;
-
-    color: #54364f;
-
-    text-align: center;
-
-    font-weight: normal;
-
-}
-
-#final-message p {
-
-    margin-bottom: 30px;
-
-}
-
-</style>
-
-<style>
-
-.cat-image {
-    width: min(480px, 90vw);
-    max-height: 550px;
-}
-
-</style>
-
-<!-- =========================================================
-     MUSIC PLAYER — TRANSFORMED CORNER VERSION
-     
-     This is an ADD-ON.
-     Do not modify your original music player.
-     ========================================================= -->
-
-<style>
-
-/* =========================================================
-   CORNER MUSIC PLAYER
-   ========================================================= */
-
-.corner-music-player {
-
-    position: fixed;
-
-    top: 20px;
-
-    right: 20px;
-
-    width: 190px;
-
-    padding: 12px;
-
-    z-index: 5000;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    background:
-        rgba(255, 255, 255, 0.78);
-
-    backdrop-filter:
-        blur(18px);
-
-    -webkit-backdrop-filter:
-        blur(18px);
-
-    border:
-        1px solid
-        rgba(255, 255, 255, 0.9);
-
-    border-radius: 22px;
-
-    box-shadow:
-        0 18px 45px
-        rgba(90, 40, 90, 0.18);
-
-    opacity: 0;
-
-    transform:
-        translateY(-20px)
-        scale(0.85);
-
-    pointer-events: none;
-
-    transition:
-        opacity 0.8s ease,
-        transform 0.8s cubic-bezier(.22,1,.36,1);
-
-}
-
-
-/* =========================================================
-   SHOW CORNER PLAYER
-   ========================================================= */
-
-.corner-music-player.visible {
-
-    opacity: 1;
-
-    transform:
-        translateY(0)
-        scale(1);
-
-    pointer-events: auto;
-
-}
-
-
-/* =========================================================
-   BIG SONG COVER
-   ========================================================= */
-
-.corner-song-cover {
-
-    width: 165px;
-
-    height: 165px;
-
-    object-fit: cover;
-
-    border-radius: 17px;
-
-    display: block;
-
-    box-shadow:
-        0 10px 25px
-        rgba(80, 35, 80, 0.18);
-
-}
-
-
-/* =========================================================
-   SONG INFORMATION
-   ========================================================= */
-
-.corner-song-info {
-
-    width: 100%;
-
-    margin-top: 10px;
-
-    text-align: center;
-
-}
-
-
-.corner-song-title {
-
-    font-size: 14px;
-
-    font-weight: bold;
-
-    color: #6e3566;
-
-    white-space: nowrap;
-
-    overflow: hidden;
-
-    text-overflow: ellipsis;
-
-}
-
-
-.corner-song-artist {
-
-    font-size: 11px;
-
-    color: #96728e;
-
-    margin-top: 3px;
-
-}
-
-
-/* =========================================================
-   CONTROLS
-   ========================================================= */
-
-.corner-controls {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 10px;
-
-    margin-top: 10px;
-
-}
-
-
-/* =========================================================
-   PLAY / STOP BUTTON
-   ========================================================= */
-
-.corner-play-button {
-
-    width: 40px;
-
-    height: 40px;
-
-    border: none;
-
-    border-radius: 50%;
-
-    cursor: pointer;
-
-    background:
-        linear-gradient(
-            135deg,
-            #d95b98,
-            #9a67cf
-        );
-
-    color: white;
-
-    font-size: 16px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    box-shadow:
-        0 6px 15px
-        rgba(140, 65, 140, 0.2);
-
-    transition:
-        transform 0.2s ease;
-
-}
-
-
-.corner-play-button:hover {
-
-    transform:
-        scale(1.08);
-
-}
-
-
-/* =========================================================
-   VOLUME CONTROL
-   ========================================================= */
-
-.corner-volume {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 5px;
-
-}
-
-
-.corner-volume-icon {
-
-    font-size: 15px;
-
-    user-select: none;
-
-}
-
-
-.corner-volume-slider {
-
-    width: 65px;
-
-    height: 4px;
-
-    cursor: pointer;
-
-    accent-color: #b84b88;
-
-}
-
-
-/* =========================================================
-   VISUALIZER
-   ========================================================= */
-
-.corner-visualizer {
-
-    display: flex;
-
-    align-items: flex-end;
-
-    gap: 2px;
-
-    height: 16px;
-
-    margin-left: 2px;
-
-}
-
-
-.corner-bar {
-
-    width: 3px;
-
-    height: 4px;
-
-    background: #c65a9c;
-
-    border-radius: 3px;
-
-}
-
-
-.corner-music-playing
-.corner-bar {
-
-    animation:
-        cornerMusicBars
-        0.7s
-        ease-in-out
-        infinite alternate;
-
-}
-
-
-.corner-music-playing
-.corner-bar:nth-child(2) {
-
-    animation-delay: 0.15s;
-
-}
-
-
-.corner-music-playing
-.corner-bar:nth-child(3) {
-
-    animation-delay: 0.3s;
-
-}
-
-
-.corner-music-playing
-.corner-bar:nth-child(4) {
-
-    animation-delay: 0.45s;
-
-}
-
-
-@keyframes cornerMusicBars {
-
-    from {
-
-        height: 3px;
-
-    }
-
-    to {
-
-        height: 15px;
-
-    }
-
-}
-
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 650px) {
-
-    .corner-music-player {
-
-        top: 12px;
-
-        right: 12px;
-
-        width: 155px;
-
-        padding: 9px;
-
-        border-radius: 18px;
-
-    }
-
-
-    .corner-song-cover {
-
-        width: 135px;
-
-        height: 135px;
-
-    }
-
-
-    .corner-song-title {
-
-        font-size: 12px;
-
-    }
-
-
-    .corner-song-artist {
-
-        font-size: 10px;
-
-    }
-
-
-    .corner-play-button {
-
-        width: 36px;
-
-        height: 36px;
-
-        font-size: 14px;
-
-    }
-
-
-    .corner-volume-slider {
-
-        width: 48px;
-
-    }
-
-}
-
-</style>
-
-
-<!-- =========================================================
-     CORNER MUSIC PLAYER HTML
-     ========================================================= -->
-
-<div
-    id="cornerMusicPlayer"
-    class="corner-music-player"
->
-
-    <img
-        src="Glue Song.jpg"
-        alt="Song cover"
-        class="corner-song-cover"
-    >
-
-
-    <div class="corner-song-info">
-
-        <div class="corner-song-title">
-            Glue Song
-        </div>
-
-        <div class="corner-song-artist">
-            beabadoobee feat. Clairo
-        </div>
-
-    </div>
-
-
-    <div class="corner-controls">
-
-
-        <!-- PLAY / STOP -->
-
-        <button
-            id="cornerPlayButton"
-            class="corner-play-button"
-        >
-            ▶
-        </button>
-
-
-        <!-- VOLUME -->
-
-        <div class="corner-volume">
-
-            <span
-                id="cornerVolumeIcon"
-                class="corner-volume-icon"
-            >
-                🔊
-            </span>
-
-
-            <input
-                id="cornerVolumeSlider"
-                class="corner-volume-slider"
-                type="range"
-                min="0"
-                max="1"
-                step="0.01"
-                value="1"
-            >
-
-        </div>
-
-
-    </div>
-
-
-</div>
-
-
-<script>
-
-/* =========================================================
-   CORNER MUSIC PLAYER JAVASCRIPT
-   ========================================================= */
-
-const cornerPlayer =
-    document.getElementById(
-        "cornerMusicPlayer"
-    );
-
-
-const cornerPlayButton =
-    document.getElementById(
-        "cornerPlayButton"
-    );
-
-
-const cornerVolumeSlider =
-    document.getElementById(
-        "cornerVolumeSlider"
-    );
-
-
-const cornerVolumeIcon =
-    document.getElementById(
-        "cornerVolumeIcon"
-    );
-
-
-const originalSong =
-    document.getElementById(
-        "birthdaySong"
-    );
-
-
-/* =========================================================
-   PLAY / STOP
-   ========================================================= */
-
-cornerPlayButton.addEventListener(
-    "click",
-    function() {
-
-
-        if (
-            originalSong.paused
-        ) {
-
-
-            originalSong
-                .play()
-                .then(
-                    function() {
-
-                        cornerPlayButton.textContent =
-                            "Ⅱ";
-
-                        cornerPlayer.classList.add(
-                            "corner-music-playing"
-                        );
-
-                    }
-                );
-
-
-        }
-
-        else {
-
-
-            originalSong.pause();
-
-
-            cornerPlayButton.textContent =
-                "▶";
-
-
-            cornerPlayer.classList.remove(
-                "corner-music-playing"
-            );
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   VOLUME
-   ========================================================= */
-
-cornerVolumeSlider.addEventListener(
-    "input",
-    function() {
-
-
-        originalSong.volume =
-            cornerVolumeSlider.value;
-
-
-        if (
-            cornerVolumeSlider.value == 0
-        ) {
-
-            cornerVolumeIcon.textContent =
-                "🔇";
-
-        }
-
-        else if (
-            cornerVolumeSlider.value < 0.5
-        ) {
-
-            cornerVolumeIcon.textContent =
-                "🔉";
-
-        }
-
-        else {
-
-            cornerVolumeIcon.textContent =
-                "🔊";
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   SHOW CORNER PLAYER WHEN GOING TO PAGE 2
-   ========================================================= */
-
-/*
-   We watch Page 1.
-
-   Your ORIGINAL code eventually does:
-
-       page1.style.display = "none";
-
-   When that happens, we show our new
-   corner version.
-*/
-
-const pageOneForMusic =
-    document.getElementById(
-        "page1"
-    );
-
-
-const pageWatcher =
-    new MutationObserver(
-        function() {
-
-
-            if (
-                pageOneForMusic.style.display === "none"
-            ) {
-
-
-                /*
-                   Show the new corner player
-                */
-
-                cornerPlayer.classList.add(
-                    "visible"
-                );
-
-
-                /*
-                   Hide the ORIGINAL player
-                   after the transition.
-                   
-                   This prevents two music players
-                   from being visible.
-                */
-
-                setTimeout(
-                    function() {
-
-                        const originalMusicArea =
-                            document.getElementById(
-                                "musicArea"
-                            );
-
-                        if (
-                            originalMusicArea
-                        ) {
-
-                            originalMusicArea.style.display =
-                                "none";
-
-                        }
-
-                    },
-                    800
-                );
-
-            }
-
-        }
-    );
-
-
-pageWatcher.observe(
-    pageOneForMusic,
-    {
-        attributes: true,
-        attributeFilter: ["style"]
-    }
-);
-
-
-/* =========================================================
-   KEEP CORNER PLAYER SYNCHRONIZED
-   ========================================================= */
-
-originalSong.addEventListener(
-    "play",
-    function() {
-
-        cornerPlayButton.textContent =
-            "Ⅱ";
-
-        cornerPlayer.classList.add(
-            "corner-music-playing"
-        );
-
-    }
-);
-
-
-originalSong.addEventListener(
-    "pause",
-    function() {
-
-        cornerPlayButton.textContent =
-            "▶";
-
-        cornerPlayer.classList.remove(
-            "corner-music-playing"
-        );
-
-    }
-);
-
-</script>
-
-<!-- =========================================================
-     GO BACK BUTTONS
-     ========================================================= -->
-
-<style>
-
-.go-back-button {
-
-    position: fixed;
-
-    bottom: 25px;
-
-    left: 25px;
-
-    z-index: 4000;
-
-    border: none;
-
-    cursor: pointer;
-
-    padding: 12px 20px;
-
-    border-radius: 100px;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size: 15px;
-
-    font-weight: bold;
-
-    color: #70405f;
-
-    background:
-        rgba(255, 255, 255, 0.75);
-
-    backdrop-filter:
-        blur(15px);
-
-    -webkit-backdrop-filter:
-        blur(15px);
-
-    border:
-        1px solid
-        rgba(255, 255, 255, 0.9);
-
-    box-shadow:
-        0 8px 25px
-        rgba(100, 50, 100, 0.12);
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    transition:
-        opacity 0.4s ease,
-        transform 0.25s ease;
-
-}
-
-
-.go-back-button.visible {
-
-    opacity: 1;
-
-    pointer-events: auto;
-
-}
-
-
-.go-back-button:hover {
-
-    transform:
-        translateY(-3px);
-
-}
-
-
-@media (max-width: 650px) {
-
-    .go-back-button {
-
-        bottom: 15px;
-
-        left: 15px;
-
-        padding: 10px 16px;
-
-        font-size: 14px;
-
-    }
-
-}
-
-</style>
-
-
-<!-- PAGE 2 BACK BUTTON -->
-
-<button
-    id="backToPage1"
-    class="go-back-button"
-    onclick="goBackToPage1()"
->
-    ← Go back
-</button>
-
-
-<!-- PAGE 3 BACK BUTTON -->
-
-<button
-    id="backToPage2"
-    class="go-back-button"
-    onclick="goBackToPage2()"
->
-    ← Go back
-</button>
-
-
-<script>
-
-/* =========================================================
-   BACK BUTTONS
-   ========================================================= */
-
-const backToPage1 =
-    document.getElementById(
-        "backToPage1"
-    );
-
-const backToPage2 =
-    document.getElementById(
-        "backToPage2"
-    );
-
-
-/* =========================================================
-   SHOW PAGE 2 BACK BUTTON
-   ========================================================= */
-
-const page2ForBackButton =
-    document.getElementById(
-        "page2"
-    );
-
-
-const page2Watcher =
-    new MutationObserver(
-        function() {
-
-            if (
-                page2ForBackButton.style.display === "flex"
-            ) {
-
-                backToPage1.classList.add(
-                    "visible"
-                );
-
-            }
-
-        }
-    );
-
-
-page2Watcher.observe(
-    page2ForBackButton,
-    {
-        attributes: true,
-        attributeFilter: ["style"]
-    }
-);
-
-
-/* =========================================================
-   SHOW PAGE 3 BACK BUTTON
-   ========================================================= */
-
-const page3ForBackButton =
-    document.getElementById(
-        "page3"
-    );
-
-
-const page3Watcher =
-    new MutationObserver(
-        function() {
-
-            if (
-                page3ForBackButton.style.display === "flex"
-            ) {
-
-                backToPage1.classList.remove(
-                    "visible"
-                );
-
-                backToPage2.classList.add(
-                    "visible"
-                );
-
-            }
-
-        }
-    );
-
-
-page3Watcher.observe(
-    page3ForBackButton,
-    {
-        attributes: true,
-        attributeFilter: ["style"]
-    }
-);
-
-
-/* =========================================================
-   PAGE 2 → PAGE 1
-   ========================================================= */
-
-function goBackToPage1() {
-
-    page2ForBackButton.style.transition =
-        "opacity 0.6s ease, transform 0.6s ease";
-
-    page2ForBackButton.style.opacity =
-        "0";
-
-    page2ForBackButton.style.transform =
-        "translateY(20px)";
-
-
-    setTimeout(
-        function() {
-
-            page2ForBackButton.style.display =
-                "none";
-
-
-            document.getElementById(
-                "page1"
-            ).style.display =
-                "flex";
-
-
-            const page1 =
-                document.getElementById(
-                    "page1"
-                );
-
-
-            page1.style.opacity =
-                "0";
-
-            page1.style.transform =
-                "scale(0.97)";
-
-
-            window.scrollTo(
-                0,
-                0
-            );
-
-
-            requestAnimationFrame(
-                function() {
-
-                    page1.style.transition =
-                        "opacity 0.7s ease, transform 0.7s ease";
-
-                    page1.style.opacity =
-                        "1";
-
-                    page1.style.transform =
-                        "scale(1)";
-
-                }
-            );
-
-
-            backToPage1.classList.remove(
-                "visible"
-            );
-
-        },
-        600
-    );
-
-}
-
-
-/* =========================================================
-   PAGE 3 → PAGE 2
-   ========================================================= */
-
-function goBackToPage2() {
-
-    page3ForBackButton.style.transition =
-        "opacity 0.6s ease, transform 0.6s ease";
-
-    page3ForBackButton.style.opacity =
-        "0";
-
-    page3ForBackButton.style.transform =
-        "translateY(20px)";
-
-
-    setTimeout(
-        function() {
-
-            page3ForBackButton.style.display =
-                "none";
-
-
-            page2ForBackButton.style.display =
-                "flex";
-
-
-            page2ForBackButton.style.opacity =
-                "0";
-
-            page2ForBackButton.style.transform =
-                "translateY(20px)";
-
-
-            window.scrollTo(
-                0,
-                0
-            );
-
-
-            requestAnimationFrame(
-                function() {
-
-                    page2ForBackButton.style.transition =
-                        "opacity 0.7s ease, transform 0.7s ease";
-
-                    page2ForBackButton.style.opacity =
-                        "1";
-
-                    page2ForBackButton.style.transform =
-                        "translateY(0)";
-
-                }
-            );
-
-
-            backToPage2.classList.remove(
-                "visible"
-            );
-
-            backToPage1.classList.add(
-                "visible"
-            );
-
-        },
-        600
-    );
-
-}
-
-</script>
 
 </body>
 
